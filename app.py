@@ -1,45 +1,57 @@
 # app.py — Ephemeral, per-session RAG chatbot (no docs in repo)
-# Requirements: gradio, openai>=1.40.0, python-dotenv, pymupdf, numpy
+# Requires: gradio>=4.44.1, openai>=1.40.0, python-dotenv, pymupdf, numpy, tiktoken (optional)
 
 import os, json, uuid, shutil
 from pathlib import Path
+from typing import List, Tuple, Dict
 from dotenv import load_dotenv
 
 import numpy as np
 import gradio as gr
 from openai import OpenAI
 
+# ---- Secrets / client ----
 load_dotenv()
 OPENAI_KEY = os.getenv("OPENAI_API_KEY")
 if not OPENAI_KEY:
     raise RuntimeError("Missing OPENAI_API_KEY (HF → Settings → Secrets).")
 client = OpenAI(api_key=OPENAI_KEY)
 
-SYSTEM = ("You are a helpful company onboarding chatbot. Prefer answers grounded "
-          "in the uploaded docs; if not found, say: “I don’t see this in our training docs.”")
-EMBED_MODEL = "text-embedding-3-small"
-GEN_MODEL   = os.getenv("GEN_MODEL", "gpt-3.5-turbo")
-CHUNK_SIZE, CHUNK_OVERLAP = 900, 150
-SESSIONS_ROOT = Path("/tmp/sessions")  # ephemeral storage
+# ---- Behavior knobs (safe defaults; see comments to change later) ----
+SYSTEM = (
+    "You are a company onboarding chatbot. Answer ONLY using the Context below. "
+    "If the answer is not in the context, reply exactly: 'Not in the docs.' "
+    "Be concise."
+)
+EMBED_MODEL = "text-embedding-3-large"   # ↑ Better recall. Swap to 3-small to save $.
+GEN_MODEL   = "gpt-4o"                    # ↑ Best for doc QA. Can fall back to gpt-4o-mini.
+CHUNK_SIZE, CHUNK_OVERLAP = 1200, 200     # ↑ Larger chunks capture full thoughts; overlap keeps continuity.
+SESSIONS_ROOT = Path("/tmp/sessions")     # ↑ Ephemeral; wiped on restart. Keeps docs private per user.
 
-# ---------- file reading ----------
-def read_text(path: Path) -> str:
+# ---------- File reading (returns text WITH page metadata) ----------
+def _read_text(path: Path) -> str:
     return path.read_text(encoding="utf-8", errors="ignore")
 
-def read_pdf(path: Path) -> str:
+def _read_pdf_pages(path: Path) -> List[Tuple[str, Dict]]:
+    """Return [(page_text, {'page': int}), ...] so we can cite page numbers."""
     import fitz  # PyMuPDF
+    out: List[Tuple[str, Dict]] = []
     with fitz.open(str(path)) as doc:
-        return "\n\n".join(p.get_text("text") for p in doc)
+        for i, p in enumerate(doc, start=1):
+            out.append((p.get_text("text"), {"page": i}))
+    return out
 
-def load_file(path: Path) -> str:
+def load_file_with_meta(path: Path) -> List[Tuple[str, Dict]]:
     ext = path.suffix.lower()
-    if ext in {".txt", ".md"}: return read_text(path)
-    if ext == ".pdf":           return read_pdf(path)
-    return read_text(path)
+    if ext == ".pdf":
+        return _read_pdf_pages(path)
+    # treat txt/md/anything-else as whole-text (no page)
+    return [(_read_text(path), {"page": None})]
 
-# ---------- chunking ----------
-def chunk_text(text: str, size=CHUNK_SIZE, overlap=CHUNK_OVERLAP):
-    if not text: return []
+# ---------- Chunking ----------
+def chunk_text(text: str, size=CHUNK_SIZE, overlap=CHUNK_OVERLAP) -> List[str]:
+    if not text:
+        return []
     text = text.replace("\r\n", "\n")
     out, i, n = [], 0, len(text)
     while i < n:
@@ -47,12 +59,14 @@ def chunk_text(text: str, size=CHUNK_SIZE, overlap=CHUNK_OVERLAP):
         chunk = text[i:j].strip()
         if j < n:
             k = chunk.rfind(". ")
-            if k > len(chunk) * 0.5: chunk = chunk[:k+1]
-        if len(chunk) > 30: out.append(chunk)
+            if k > len(chunk) * 0.5:
+                chunk = chunk[: k + 1]  # end on sentence if possible
+        if len(chunk) > 30:
+            out.append(chunk)
         i = max(0, j - overlap)
     return out
 
-# ---------- per-session index (numpy, cosine) ----------
+# ---------- Per-session numpy index (cosine sim) ----------
 def sess_dir(session_id: str) -> Path:
     d = SESSIONS_ROOT / session_id
     d.mkdir(parents=True, exist_ok=True)
@@ -66,109 +80,146 @@ def save_index(session_id: str, embeddings: np.ndarray, meta: list):
 def load_index(session_id: str):
     d = sess_dir(session_id)
     e, m = d / "embeddings.npy", d / "meta.json"
-    if not e.exists() or not m.exists(): return None, None
+    if not e.exists() or not m.exists():
+        return None, None
     return np.load(e), json.loads(m.read_text(encoding="utf-8"))
 
 def embed(text: str) -> np.ndarray:
     r = client.embeddings.create(model=EMBED_MODEL, input=text)
     return np.array(r.data[0].embedding, dtype=np.float32)
 
-def retrieve(session_id: str, query: str, k=4):
+def retrieve(session_id: str, query: str, k=6) -> List[Dict]:
     embs, meta = load_index(session_id)
-    if embs is None or not len(meta): return []
+    if embs is None or not len(meta):
+        return []
     q = embed(query)
-    embs = embs / np.linalg.norm(embs, axis=1, keepdims=True)
-    q    = q / np.linalg.norm(q)
-    sims = (embs @ q).astype(np.float32)
+    embs_n = embs / np.linalg.norm(embs, axis=1, keepdims=True)
+    q_n    = q    / np.linalg.norm(q)
+    sims = (embs_n @ q_n).astype(np.float32)
     idxs = np.argsort(-sims)[:k]
     return [{"score": float(sims[i]), "meta": meta[i]} for i in idxs]
 
-# ---------- ingest / clear ----------
+# ---------- Ingest / Clear (returns REAL error text if something fails) ----------
 def ingest_files(files, session_id: str):
-    if not files: return "Upload one or more files (PDF/TXT/MD)."
-    all_chunks, all_meta = [], []
-    for f in files:
-        p = Path(getattr(f, "name", str(f)))
-        name = p.name
-        try:
-            text = load_file(p)
-        except Exception as e:
-            return f"Error reading {name}: {e}"
-        for c in chunk_text(text):
-            all_chunks.append(c)
-            all_meta.append({"doc": name, "chunk_id": str(uuid.uuid4()), "text_preview": c[:400].replace("\n"," ")})
-    if not all_chunks: return "No readable text found."
-    emb_list = [embed(c) for c in all_chunks]
-    save_index(session_id, np.vstack(emb_list).astype(np.float32), all_meta)
-    # best-effort wipe uploaded temp files
-    for f in files:
-        try:
+    try:
+        if not files:
+            return "Upload one or more files (PDF/TXT/MD)."
+        all_chunks, all_meta = [], []
+        for f in files:
             p = Path(getattr(f, "name", str(f)))
-            p.unlink(missing_ok=True)
-        except: pass
-    return f"Ingested {len(all_chunks)} chunks from {len(files)} file(s)."
+            name = p.name
+            # read pages (or single blob for txt/md)
+            for text, extra in load_file_with_meta(p):
+                for c in chunk_text(text):
+                    all_chunks.append(c)
+                    all_meta.append({
+                        "doc": name,
+                        "page": extra.get("page"),
+                        "chunk_id": str(uuid.uuid4()),
+                        "text_preview": c[:400].replace("\n", " ")
+                    })
+        if not all_chunks:
+            return "No readable text found."
+        emb_list = [embed(c) for c in all_chunks]
+        save_index(session_id, np.vstack(emb_list).astype(np.float32), all_meta)
+
+        # best-effort wipe uploaded temp files (keeps Space clean)
+        for f in files:
+            try:
+                Path(getattr(f, "name", str(f))).unlink(missing_ok=True)
+            except Exception:
+                pass
+
+        return f"Ingested {len(all_chunks)} chunks from {len(files)} file(s)."
+    except Exception as e:
+        # Surface the actual error (pymupdf missing, bad PDF, etc.)
+        return f"Ingest error: {type(e).__name__}: {e}"
 
 def clear_session(session_id: str):
     d = sess_dir(session_id)
-    if d.exists(): shutil.rmtree(d, ignore_errors=True)
+    if d.exists():
+        shutil.rmtree(d, ignore_errors=True)
     return "Session index cleared."
 
-# ---------- chat ----------
-def format_snips(snips):
-    if not snips: return "", []
+# ---------- Chat (STRICTLY from context; temperature=0) ----------
+def _format_ctx(snips: List[Dict]) -> Tuple[str, List[str]]:
+    if not snips:
+        return "", []
     lines, srcs = [], set()
-    for s in snips:
+    for s in snips[:4]:  # keep prompt lean
         m, sc = s["meta"], s["score"]
-        lines.append(f"[{m['doc']}] (score={sc:.3f})\n{m['text_preview']}")
+        page = f" p.{m['page']}" if m.get("page") else ""
+        lines.append(f"[{m['doc']}{page}] {m['text_preview']}")
         srcs.add(m["doc"])
     return "\n\n".join(lines), sorted(srcs)
 
 def chat_fn(message, history, session_id):
     try:
-        snips = retrieve(session_id, message, k=4)
-        ctx, srcs = format_snips(snips)
-        msgs = [{"role":"system","content":SYSTEM}]
-        if ctx:
-            msgs.append({"role":"system","content":f"Relevant documents:\n{ctx}"} )
-        for h,b in (history or []):
-            msgs += [{"role":"user","content":h},{"role":"assistant","content":b}]
-        msgs.append({"role":"user","content":message})
-        r = client.chat.completions.create(model=GEN_MODEL, messages=msgs, max_tokens=300, temperature=0.1)
-        out = r.choices[0].message.content
-        if srcs: out += "\n\nSources: " + ", ".join(srcs)
+        snips = retrieve(session_id, message, k=6)
+        if not snips:
+            return "Not in the docs."
+        ctx, srcs = _format_ctx(snips)
+
+        msgs = [
+            {"role": "system", "content": SYSTEM},                           # strong grounding
+            {"role": "user",   "content": f"Context:\n{ctx}\n\nQuestion: {message}"}  # only-docs prompting
+        ]
+        r = client.chat.completions.create(
+            model=GEN_MODEL,
+            messages=msgs,
+            max_tokens=350,
+            temperature=0.0  # ↑ deterministic, avoids hallucination when context is clear
+        )
+        out = r.choices[0].message.content.strip()
+        if srcs:
+            out += "\n\nSources: " + ", ".join(srcs)
         return out
     except Exception as e:
         return f"[Error] {type(e).__name__}: {e}"
 
-# ---------- UI ----------
+# ---------- UI (per-user session_id; kept in gr.State) ----------
 with gr.Blocks(title="Data Enablement Chatbot") as demo:
-    session_id = gr.State(lambda: str(uuid.uuid4()))  # unique per user session
+    session_id = gr.State()  # None until first interaction; we create & return it from handlers
 
-    gr.Markdown("### Data Enablement Chatbot — upload docs (private to your session), click **Ingest**, then ask questions.")
+    gr.Markdown("### Data Enablement Chatbot — upload docs (private to **your session**), click **Ingest**, then ask questions.")
+
+    def _sid(sid):  # ensure every user gets a unique, private session
+        return sid or str(uuid.uuid4())
+
     with gr.Row():
         with gr.Column(scale=1):
-            up = gr.File(label="Upload docs (PDF / MD / TXT)", file_count="multiple")
-            ingest_btn = gr.Button("Ingest uploaded files")
-            ingest_out = gr.Textbox(label="Ingest status")
-            clear_btn = gr.Button("Clear my session index")
-            clear_out = gr.Textbox(label="Clear status")
-            gr.Markdown("Docs & embeddings are stored **ephemerally** under `/tmp/sessions/<session>` and are cleared on restart or when you press Clear.")
+            up          = gr.File(label="Upload docs (PDF / MD / TXT)", file_count="multiple")
+            ingest_btn  = gr.Button("Ingest uploaded files")
+            ingest_out  = gr.Textbox(label="Ingest status")
+            clear_btn   = gr.Button("Clear my session index")
+            clear_out   = gr.Textbox(label="Clear status")
+            gr.Markdown("Docs & embeddings are stored **ephemerally** under `/tmp/sessions/<session>` and are cleared on restart or when you press **Clear**.")
         with gr.Column(scale=2):
             chat = gr.Chatbot()
-            msg = gr.Textbox(placeholder="Ask a question about your docs...")
+            msg  = gr.Textbox(placeholder="Ask a question about your docs…")
             send = gr.Button("Send")
 
-    ingest_btn.click(lambda f, sid: ingest_files(f, sid), inputs=[up, session_id], outputs=[ingest_out])
-    clear_btn.click(lambda sid: clear_session(sid), inputs=[session_id], outputs=[clear_out])
+    # Handlers return updated session_id so each user keeps their own
+    def ingest_handler(files, sid):
+        sid = _sid(sid)
+        return ingest_files(files, sid), sid
 
-    def on_send(text, history, sid):
-        if not text or not text.strip(): return gr.update(value="Please enter a question."), history
+    def clear_handler(sid):
+        sid = _sid(sid)
+        return clear_session(sid), sid
+
+    def send_handler(text, history, sid):
+        sid = _sid(sid)
+        if not text or not text.strip():
+            return gr.update(value="Please enter a question."), history, sid
         reply = chat_fn(text, history, sid)
         history = (history or []) + [(text, reply)]
-        return "", history
+        return "", history, sid
 
-    send.click(on_send, inputs=[msg, chat, session_id], outputs=[msg, chat])
-    msg.submit(on_send, inputs=[msg, chat, session_id], outputs=[msg, chat])
+    ingest_btn.click(ingest_handler, inputs=[up, session_id],   outputs=[ingest_out, session_id])
+    clear_btn.click(clear_handler,   inputs=[session_id],        outputs=[clear_out, session_id])
+    send.click(send_handler,         inputs=[msg, chat, session_id], outputs=[msg, chat, session_id])
+    msg.submit(send_handler,         inputs=[msg, chat, session_id], outputs=[msg, chat, session_id])
 
 if __name__ == "__main__":
     demo.launch()
