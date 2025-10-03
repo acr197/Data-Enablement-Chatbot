@@ -1,22 +1,24 @@
 import os
+from dotenv import load_dotenv
 import gradio as gr
 from openai import OpenAI
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+load_dotenv()
+api_key = os.getenv("OPENAI_API_KEY")
+client = OpenAI(api_key=api_key)
 
-def ask_bot(message, history):
-    messages = [{"role": "system", "content": "You are a helpful company chatbot. Answer clearly and concisely."}]
-    for human, bot in history:
-        messages.append({"role": "user", "content": human})
-        messages.append({"role": "assistant", "content": bot})
-    messages.append({"role": "user", "content": message})
+SYSTEM = "You are a helpful company chatbot. Answer clearly and concisely."
 
-    response = client.chat.completions.create(
-        model="gpt-4o-mini",
-        messages=messages,
-        max_tokens=300
-    )
-    return response.choices[0].message.content
+def chat_fn(messages, _history):
+    # messages is a list of dicts: [{"role":"user"/"assistant"/"system","content": "..."}]
+    msgs = [{"role":"system","content": SYSTEM}] + [m for m in messages if m["role"] != "system"]
+    resp = client.chat.completions.create(model="gpt-4o-mini", messages=msgs, max_tokens=300)
+    return resp.choices[0].message.content
 
-demo = gr.ChatInterface(ask_bot, title="Data Enablement Chatbot")
+demo = gr.ChatInterface(
+    fn=chat_fn,
+    type="messages",               # fixes the warning
+    title="Data Enablement Chatbot",
+)
+
 demo.launch()
