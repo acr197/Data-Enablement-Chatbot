@@ -1,8 +1,6 @@
+gradio==5.48.0
 openai>=1.40.0
-gradio==4.44.1
 python-dotenv
-tiktoken
-gradio
-pymupdf
 numpy
-pdfminer.six
+pymupdf
+pdfminer.six    # optional but useful fallback
