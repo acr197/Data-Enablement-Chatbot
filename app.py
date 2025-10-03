@@ -1,11 +1,4 @@
 # app.py — Global RAG over a local docs/ folder (no per-user upload).
-# Requirements (requirements.txt):
-#   gradio>=4.44.1
-#   openai>=1.40.0
-#   python-dotenv
-#   pymupdf        # for PDF text extraction
-#   numpy
-#
 # Runtime secrets: set OPENAI_API_KEY in your Space (Settings → Secrets).
 # Optional: set DOCS_DIR (e.g. "/home/user/app/docs" or "./docs").
 
@@ -45,29 +38,48 @@ DOCS_DIR = Path(os.getenv("DOCS_DIR", Path(__file__).parent / "docs")).resolve()
 # ---------------------------
 # File reading
 # ---------------------------
+# optional fallback extractor for stubborn PDFs
+try:
+    from pdfminer.high_level import extract_text as pdfminer_extract_text
+except Exception:
+    pdfminer_extract_text = None
+
+
 def _read_text(path: Path) -> str:
     return path.read_text(encoding="utf-8", errors="ignore")
 
 def _read_pdf_pages(path: Path) -> List[Tuple[str, Dict]]:
-    """Return list[(text, {'page': int})] for each page that has real text."""
+    """Return list[(text, {'page': int})] per page; fallback to whole-doc with pdfminer."""
     import fitz  # PyMuPDF
     out: List[Tuple[str, Dict]] = []
     with fitz.open(str(path)) as doc:
         if getattr(doc, "needs_pass", False):
-            # Encrypted PDFs are skipped (or you can add password support here)
             return out
         for i, p in enumerate(doc, start=1):
             txt = p.get_text("text") or ""
             if not txt.strip():
-                # try a second extractor to salvage some text
                 try:
                     blocks = p.get_text("blocks") or []
-                    txt = "\n".join(b[4] for b in blocks if isinstance(b, (list, tuple)) and len(b) > 4) or ""
+                    txt = "\n".join(
+                        b[4] for b in blocks
+                        if isinstance(b, (list, tuple)) and len(b) > 4
+                    ) or ""
                 except Exception:
                     pass
             if txt.strip():
                 out.append((txt, {"page": i}))
+
+    # Fallback: if page-wise got nothing, try pdfminer whole-doc extraction
+    if not out and pdfminer_extract_text:
+        try:
+            txt = (pdfminer_extract_text(str(path)) or "").strip()
+            if txt:
+                out = [(txt, {"page": None})]
+        except Exception:
+            pass
+
     return out
+
 
 def load_file_with_meta(path: Path) -> List[Tuple[str, Dict]]:
     ext = path.suffix.lower()

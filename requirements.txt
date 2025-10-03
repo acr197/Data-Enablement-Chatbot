@@ -5,3 +5,4 @@ tiktoken
 gradio
 pymupdf
 numpy
+pdfminer.six
