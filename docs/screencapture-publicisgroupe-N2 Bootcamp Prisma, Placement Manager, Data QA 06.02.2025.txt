@@ -1,0 +1,1130 @@
+2025 N2 Bootcamp _ Prisma, Placement Mana... Ff- v	P Search	?
+6lJ Record v  'f Upload * Favorite + Playlist	<i/,Teamsv  -
+
+
+
+Chapten
+
+
+
+
+
+Notli!s
+
+
+
+
+CommentJ.
+
+
+
+Anal)'tics
+
+
+
+
+
+
+
+
+
+
+
+2025 N2 Bootcamp : Prisma, Placement Manager, Data QA
+June 2. 2025  Expires in 120 days  • 0 views • SharePoint App •  HD  •  ... > Documents > Recordings
+
+centered around information for the direct programmatic video.
+Endpoint of care team.
+So please keep that in mind.
+So, Kylie, do you want to go to the next slide?
+Here are links to everything you need when it comes to placement manager.
+So we're gonna be talking about just placement manager itself.
+That's the link to log in. If you need access, you have to submit a JIRA.ticket.
+Pub Media is the ones that own placement manager.
+It's part of the OS. so they're gonna ask for your lion log in.
+They're the ones that get you access if you guys last minute need access, I can't help you.
+So I'm not the person who can grant you access.
+So please keep that in mind if you ever need additional fields in place. A manager in the drop down there is a link there.
+So that you can submit to the smartsheet form to get any new fields added to placement manager. If you ever have issues with placement manager, you can't log in. You can't.
+You know something's running slow. The AP is not working.
+You need to submit a JIRA ticket.
+There again, that's not something that I can help you out with.
+That's gonna be on the pub media team.
+Creative manager is basically placement manager, but at the creative level that is the link that your team.
+The creative aor's log into to get to creative manager to put in their creative names and to get their.
+Q their data.
+To get their. HTML banners QA.
+And then there is our metric tactic dictionary 1here 1hat will have all of the HCP campaigns and their tactics and each of the metrics that we collect for it. So that is a list that we maintain with all the partners. So the partners, every time they have a.
+Whole new tactic. like let's say they update their sales deck and they launch a, you
+l,n,..u, ::, nau, hrn.o nf rlnr- cnnt
+
+Let's say they will send us that tactic name. We have a complete list.
+It has a unique ID and then we know every single metric that we will get to that new tactic.
+So that's our complete list It is updated ever; day.
+That is also the list of the tactic fields tliat you'llsee in placement manager when you're building out your buys.
+So this is your one stop shop for all your links.
+Do you wanna go to the next slide?
+So everything that you guys put in placement manager is super, super important because it's what we use to connect all of our digital data together.
+So we're using that unique ID from placement manager to a connect to replacement manager, right?
+So that's where we get all of our classifications.
+That's how we know you got a podcast. That's how we know if it was tagged or not.
+That's how we know what Prisma product name.
+It's under what the site name is everything that we.
+Into any of our reporting.
+Anything for ipmm. It all comes from
+placement manager.
+So super super important that you start there, then once you push it to Prisma Prisma's where we pull spend for our direct campaigns, then it gets pushed to any of our ad servers, right?
+So it's the same name in Flash talking DCM and lNNOVI0, and then that IED is how we connect to our double verify data, our viewability, our brand safety.
+And then it's also if it's programmatic, how we go to the Dsps and we connect to get all of our DSP spend 'cause when we report
+out on programmatic, we pull spend from the Dsps.
+It's how we get the data from the partners.
+So if you guys ever are running something that has NPI data that we are collecting, we need that placement manager ID because it's how we connect everything together.
+And it's also how we connect to IQ via data. lfwe are running a DTC campaign that can be tagged.
+So this ID is essentiaI.
+And it has to be unique for each one of your packages and your placements.
+Next slide.
+So because we're connecting everything together using that ID, this data that you're entering into placement manager and into Prisma, it supports all of these client deliverables, most importantly the one that we talk about constantly is ipmm or that's our marketing mix model.We need data to be at.
+The NPI level. or it's at the DMA level. Utm parameters.
+I'm gonna say it
+Don'tdo"*u.
+We cannot use that data for our analysis, so we must for ipmm, have NPIdata or OMA level data.
+All of this data that we talked about is being put into imdna.
+That is the database where we house all of our data.
+That is the name that Novartis gave it imdna.
+So if you ever hear imdna, that is our database.
+That is where all of this data that you guys are entering gets stored.
+And where we automate all of our
+
+reporting, how Novartis automates all of their reporting. It's all coming from the same location, the same database. and that reporting that we're talking about are these dashboards, right?
+So you have the N2 dashboards.
+Those are the ones that you guys are linked to in teams tha1 we review every month.
+Novartis is logging in and looking at this exact same data in their dashboards and MCI. MCI is the same name as data Rama Da1arama got purchased by Salesforce. They renamed it MCI.
+Marketing cloud intelligence.
+So just keep that in mind. This data feeds not just MCI their data Rama, but it also feeds Novartis dashboards that they call l am best all of this data as well. We use for automation right.
+So we are trying to automate everything that we do and the reason being is we don't want you guys having to have to spend your time on this, right?
+So the more you guys enter your data incorrectly. the more we can automate and that means you know, going and reaching out.
+Partners for tt1eir pacing. Data will use this
+data.
+You know everything that we talk about from moving data from the media tools into place manager into Prisma.
+Everything needs this data to be clean and be correctly entered in, otherwise we can't automate it.
+And then last but not leas.l we use all the data that you enter mostly to get our NPI data collection right
+All of that data you enter it in, we use triggers. right?
+Oh, you put in its HCP. That tells us we need
+to.
+Go and look at it for NPIdata.
+Oh, you put in that the data provider is.
+That that we're getting data for this program.
+That's how we know how to reach out and get data.
+Oh, you put planned units in.
+Oh, that's how we know it's live.
+So we use this data for everything to support all of these client deliverables.
+So it's super important that you think about what you're entering into the system so that you don't mess anything up down the road, right?
+So can you go to the next slide?
+0 most importantly. when we talk about all this data, it's not just for our reporting, but it's really for ipmm and our marketing mix models, right?
+Keep in mind UTM parameters and or tnnovid tags do not provide DMA level data. So for our ipmm what we do is we first say hey, do we get NPIdata for this program if we do great, we"re good, we're golden, we can do our analysis.
+The next thing we check: for is do we have campaign manager or DCM DMA le\lel data?
+It has to be DMA level data. lnnovid does
+not give us DMA level data. You must.
+You have something in innovid. You also need adcm 1 by 1 tag so that we get the DMA level data. Utm parameters do not give us any data
+Nothing, abs.olutely nothing,
+OK. If I could get rid of them, I would.
+That is not going to give us what we need for ipmm if we cannot tag a buy, which this has to be very, very, very limited.
+Did right, this is our custom programs like messy or basil or point of care programs or
+
+aaaressaote MVt'U. vve nave ro reacn om rn the partners and it's a lot of extra work to do that.
+So if we do not tag. then the next step is OK. we'll go to the partner and we 5ay. hey. do you guys have DMA level data? If they don't, then they'll give U.S. National data and we'll ask them, OK. well, how much of your audience at the?
+DMA level is in each OMA.
+And they'llgive U5 a percent of their audience at the DMA level.
+So we'lltake the national level data and distribute it down to the OMA level data based off of those percentages.
+If they can't give us their audience and tell us what percent of their audience is in each DMA. we take the national data and we distributed it down to the DMA level data DMA level with census data.
+All of this to say is those options in pink need to be a last resort.
+It's a lot of time and it's a lot of work on our plate and these publishers all send the data in different formats, so then we have to manually reorganize it.
+Don't do this.
+OK.
+Very, very, very little amount of your program should not be tagged.
+Everything should at least have a click tag on it so that we can track it and we c.an get DMA level data.
+Sounds good.
+Feel free, by the way guys. if you do have questions to go off. mute and ask questions, it is allowed.
+OK.
+So thinking about how you're entering your data into placement manager, we in placement manager the best thing about it is tflat there's strings and the string is just what we call the name, right?
+So when you go and you put stuff into placement manager, it gives you a name. It gives you a campaign string. a package string and a placement string.
+And we have our unique IDs in them. Don't reuse placement manager IDs, right?
+So if you are not using the APIand you're manually copy and pasting.
+Things in do not ever reuse a placement manager ID for more than one program.
+We take this ID and that's how we go into the back end of placement manager and we see metadata, right?
+So you're entering a bunch of data into placement manager that does not end up in these names or in these strings.
+Anything that's not in the strings, you can go into placement manager and update post launch so you do not need to.
+Rename anything if you don't see the field in in the string.
+So like tactic names, right?
+That's not here in the string or in the names.
+You call go into placemellt manager and update that at any time. So if you ever made a mistake on one of those fields, it's
+OK, go and update it in placement manager. You call do that post launch anything in the strings if you have to update it please.
+Try to rename it
+You'll need to rename it in if it's like let's. You got the the rate type incorrectly.
+Oh no. We remove the rate type. Let's say
+that in the Bl targeting type you did not call out that it was P2P, that BTG 1.
+That should say PZP. If you were ever running a PRcampaign that's in the string, you would need to go and rename it in placement manager.
+Rename it in Prisma.
+Rename it in campaign manager lnnovid.
+
+Hash talkmg.
+Double verify the Dsps if it's programmatic and the publishers if it's HCP. So if you need to change something in the string, you need to change that string in every single location.
+Particula y for NPI, you need to tell the publishers there's a new there's a new sheriff in town, and they need to be using the new names.
+So make sure you are calling that out.
+And you are always updating the names in every single location.
+If you ever have to update the string. This is post launch.
+Any questions?
+OK.
+Next slide.
+So once we are done with this training, the direct and the programmatic point of care and video teams, you guys will need to finish these four steps.
+First we're gonna have you update 2025 placement manager for metadata fields to make sure that they've correctly been entered into the system.
+These are metadata fields. so again you just have to update them in placement manager only there. So at the package level you"ll going to.
+The Bl invento,y type.
+This is also referred to as the budget channel or the channel itself. You're going to update the tactic name if it's incorrect so if it's a doc spot and you put in run of site. you need to update it to say Doc spot in the tactic name field.
+At the placement level.
+We're asking you to update the Bl format type which is going to be the sub channel.
+So this is just updating it to make sure that it is correct and that it matches your.
+2025 media plans.
+The next thing that you're going to need to update is any place in Prisma where there are no planned units. Every single buy, even flat buys or buys that don't have any metric guarantees. must have planned units.
+And that is how we are able to a see what's live. But B also we're using it to migrate spend.
+So if we had spend in January. but the buy didn't go live until March. we u.se plan.
+It's to take the spend from January and put it into March, so you must update all of 2025 for your programs to have Prisma plan units and for those to be correctly flighted out for all of 2025.
+#3 you will need to update 2024 and 2025. Do not use buys. So any time you have a do not use right so do not use is are used.
+Do not use. This are used when you are retrafficking.
+So let's say you got the Prisma product name wrong.
+You got the campaign name wrong or you got that supplier ID wrong and you had arready launched the campaign. You'd closed it out for the month and you created a new package. new placements, new everything.
+We need you to tie the old packages and do
+not use to the new ones.
+And we want you to use the billing line item
+PRl5M.
+A package 1D to do that. So take the Prisma package ID from your. Do not use and put it into the new package that you created as a billing line item.
+Prisma package 1D we're going to go through an example in here. o these three will all go through an example of how we do it and then last but not least is we've created Marcel Trainings.
+That will be a very complicated quiz. I wrote
+
+it.
+Very excited about it that you will need to complete and pass.
+So these are the next steps, and we're
+gonna go through all of these.
+OK.
+So let's just talk about setting up your buy at an overall level.
+So first is making sure that you're choosing the correct Pris ma product name. right?
+We have a very, very, very set process now.
+For every single time you launch a new product a new product is like a new brand.
+So first and foremost is do not launch a creative rotation for branded versus unbranded or multiple indications.
+They have to be in a new product.
+I get questions all the time, kisqali. EBC and NBC yet can't run it as a creative rotation.
+I know the partner might force you to. You can't do it.
+You can't break out ipmm if you do it.
+You can't Let's say that we have, you know, a Taco pan that didn't.
+Launches fabolta that that got launched as a creative rotation, and it was the most painful experience that I've had on Novartis.
+Do not do it.
+You cannot do it as a creative rotation.
+It needs to be in different Prisma product names.
+Your CX team will provide you with a product name.
+It's going to have the brand, it's going to have the indication even if there's just one indication it's going to be branded versus unbranded and the audience will be in there as well.
+Wow, so some examples below right? If for the brand, if it's adse DSA or also referred to as unbranded DSE is disease state education. DSA is disease state awareness. An example of that would be a Taco pan or astrentan. It will then also have the indication in there.
+So again, if there is only one indication, it's still going to have that indication in the name because I bet you money.
+In one year time.
+We're gonna have another indication for that exact same brand. So no matter what it has.to include the indication or the condition in the name.
+It also needs to include if it's DSE or it's
+branded BRD.
+These are the acronyms we use in the names so that we can distinguish between the two, and then it will always be broken out as your audience, which will be DTC versus HCP. And I've given some exampies to the right. So lptacopan has three different indications C3.
+GI Gan pnh.
+It's broken out that way. Ashrizentin was an igan.
+It launched and became van Raffia.
+Those are in two separate product names. Please keep this in mind.
+#3 is where this does get a little confusing.
+Make sure you're always selecting the same Prisma product name year over year, even if it doesn't follow the rules below, right?
+So we have some stuff that launched back
+in the day that's just called like pros.
+Still select it right.
+It might not be the best way of naming it. but we've already worked through our pain and have you know, mapped everything to that name.
+So just select the same one year over year because also keep in mind for ipmm we are looking back about.
+A year and a half worth of data, sometimes
+
+two years.
+They want to look back three years, so just please keep that in mind that we are always looking at stuff for multiple years in a row.
+So This is why it's important.
+Please keep in mind too *4 is that sometimes we were unable to use the trademark name prior to FDA approval.
+So if it's a branded, we want you to use the trademark name like Fabhalta or Van Raffia. But if the client says, hey, man, you can't use that name bec.ause we don't have FDA approval yet and our competitors might see that name, you need to meet with us.
+We will help you come up with a name as a team and that's why we're always meeting like we had to do it for. I forget what the one that just launched is.
+But we had to do, you know, come up with a different name,
+So just make sure that you always are aware exactly what name to select here, because if you get this wrong, you'll have to retraffick everything.
+Everything needs to be under the correct Prisma product name.
+And then also keep in mind that your corporate and medical brands arways have a separate product name than any of your just general like us oncology or pharma buys.
+Questions here because this is super important.
+Great. Next slide.
+OK.
+Always so important here,
+AlI buys guys.
+All buys even non taggable buys must be in placement manager with a package and a placement
+I don't care what the publisher says, -H-1 Carly told me.
+This one which I I giggled.
+Just because a partner says we don't need tags doesn't mean that we do not tag.
+Don't listen to your partners, OK?
+Listen to me and what I say is we always need A tag.
+Even if it's just a click tag, a click tag is a link.
+Guys, there should be not one partner saying no to this. If they are, you get me on the phone. OK, I will be your bulldog.
+So anyhow, always need A tag.
+Again, UTM parameters are not enough. We can't do anything with them.
+I would get rid of UTM parameters.
+I've tried, I've tried, tried to get rid of all of claravine OK
+They're not useful things for us when it
+comes to our ipmm reporting, so, It's not enough.
+We need that tag in placement manager #2.
+You must create a pack.age and a placement
+I know that's confusing because you're like, wait, there's nothing tagged. We need both.
+No standalone placements or just standalone pack.ages, right?
+They have to have both a package and a placement.
+#3 the placement is going to be a zero by zero placement.
+We have that.
+We need that placement because at that level in our data, that's where we put down all the targeting information.
+And the ad serving information. So you got to make sure you create one even if it's not tagged before the ad serving method is going to be siteserved,
+No tags.
+So you're going to tell us, hey, this program
+
+cannot be tagged.
+You still need to go get data for it That's our problem.
+But like, it still needs to have that placement so that it tells if its sites are no tags, no. You still need it for docx:imity.
+Everyone needs a placement guys.
+You have to have a placement package and placement ad serving method.
+
+Gabrielle Charles 23:07
+No, sorry, sorry.
+
+Jacqueline Derron 23:08
+The site served no tags.
+
+
+Gabrielle Chari  23:09
+I meant like in terms of tagging.
+
+Jacqueline Derron 23:11
+Oh oh, Doximity is one that we do allow to not have tags because and the reason being is they always give us NPI data for all of their programs. right?
+
+Gabrielle Charles 23:17
+OK. cool.
+
+Jacqueline Derron 23:24
+That is the only reason we accept that for docximity. but you'll still need a placement and it'll still need to be a zero by zero placement.
+We also need the unique creative 1 by 1 field to be filled out for non tagged programs and this is where we get the content ID also referred to as MRR, also referred to as the fuse ID.
+So I know it's a little confusing because it says one by one, but you still need to put your content ID or your MLR or your fuse ID there.
+This is for reporting purposes so that we always know what that content ID is for that buy.
+I'm going to pause any questions.
+OK.
+Next slide.
+Oh, this is our favorite.
+This is my favorite slide and any slide that you see a ducky Carly is going to do us a demonstration.
+So this is for multi component buys and this is an A place where we have a drug monograph campaign, right?
+So if you see over here to the left if you go and you look at your media plans, this is how you can tell how to set up these buys.
+So you'll see for this drug monograph tactic. Here we have a banner.
+And we have trigger a triggered e-mail.
+Now you'll see that the spend is all in the direct or emerging display channel.
+That's going to be your Bl inventory type or your budget channel.
+So you're going to have that drug monograph package, the Bl inventory type is going to be display and then you're going to have a placement for your banner, your Bl format type would be banner for that placement and then you"re going to have a placement.
+For your triggered e-mail, the Bl format type.
+Will be a custom e-mail because triggered emails are custom emails.
+So you're gonna have the package is gonna be your budget and then at the placement level is where you tell us what the assets are, OK.
+So this is where it gets super important, because a lot of the teams got a little confused here and might have created two n;ic:k!'.'!nP .
+
+Really, we want one package, 2 placements.
+So Carly, I'll pass it over to you.
+Do you wanna go through an example?
+
+Carly Fisher 25:42
+Sure. Let me just pull up.
+Can you guys see the placement manager now?
+Or are you still seeing the deck? OK. perfect So I can just make an example using.
+
+Jacqueline D..-.:rron 25:52
+Yes.
+
+Carly Fisher 26:01
+The l"m just in one of the Cosentyx campaigns just because.
+I'm just gonna do one as an example and can remove it after but so for this example, when we're making the package, you would fill outall of the package information.
+For the drug monograph. for example, so I
+can use that one.
+So we can just go through. Some of these realquickJust so. We can get to the part where. We need to tie them together.
+So I'm just filling this information out how
+we typically would for.
+A display package, so this part here is where
+you would click for the Bl inventory.
+Retype is where you would dick display even though there's an e-mail included in the package or triggered e-mail, you would still dick display as Jackie said before the money is being spent on the display tactic and the e-mail.
+Just we get with the buy.
+So then this is not a conference. And then the rate type.
+Umm for this we can put as flat.
+It's not added value or make good, it's a byline item.
+Publisher or sorry, this one we'll do add server because it's a monograph.
+And then there is no billing line item that
+we need to account for.
+You'll rollover was not previously.
+Live. Let's just say it"s live for full year for this example.
+And then let's just say we can just say, for example sake that this started.
+Yesterday and is going through the end of the month display by and then here you would click standard again.
+It's on the package level and then for unique publisher ID. I don't believe Metscape has one.
+So we can.
+Put an A and then I just realized I missed a few up here, so I'm just adding in the ones that I missed.
+Npi data provider will be metsc.ape as they're providing the data and then the tactic here will just be the drug monograph.
+
+Jacqueline Derron 28:39
+Just one thing to note here
+Why there's two different NPIdata providers?
+That is because sometimes the provider might be I heart.
+Let's say that like you're running with I heart. But lqva is the one that sends us the N Pl data provider.
+So just keep that in mind. That's why we have those fields in two separate fields there.
+So just keep.
+That's something that's unique.
+
+Carlv Fisher 29:B
+
+OK. And then?
+For this I'm just putting in some numbers here.
+Just for example purposes, I don't know off the top of my head what these numbers would be, but I'm just gonna make sure that I filled in all the parameters needed,
+Looks like I forgot that one.
+So then when you dick save and out of placement.
+It'll bring you to the placement area.
+Yeah. So then first you would build out the actual monograph drug monograph tactic itself.
+So for placement or format type, we can use or is it?
+No.
+Banner.
+Placement description. Drug monograph.
+Ad serving method you would do, but it's being served as and tllen device type it can be.
+Cross devices. Verification. And then.
+Pack. Sorry for dimensions, you want to make what the actual dimensions would be for tile package so.
+Drug monograph. Let's just do.
+
+Size. OK, And then here for the Bl format type, the inventory type is still display and then the format type would be a bam1er.
+Inventory type would be publisher, direct, O&O and then for the creative ID. Since this is not like a custom creative, we can just put this.
+You can see here if it's not a one by one. you can just put Sofia not one by one.
+And then forward type you would just put the targeting. So I can just do target list.
+Right now data provider will be.
+Should be Medscape, as they're the ones who are providing the data, but I don't see those them in here.
+Oh.·cause, we it's actually gonna be the target list.
+Never mind.
+So it could be first party data for client 'cause we get tile data from artists and then audience quality.
+Since it's HCP, we don't have any diverse targeting.
+Yeah. And then we can leave this all the same.
+And then create and add another. So then for tile e-mail you'd wanna update the placement or format type to be.
+Hmm.
+E-mail which you know custom e-mail.
+And then for the placement description, you can add in.
+E-mail to the placement name so that way you can track between the two which is for the e-mail which is for the actual tactic, and then for the ad server method.
+It'll be site served with one by one and then no verification.
+Then just making sure that all of these will stay the same dimensions we want to make as a one by one, and then for Bl inventory type this willstay.
+As display as the funding is associated with the actual drug monograph and then for the format type, that's where we will click display triggered e-mail.
+For the creative ID, you would put the creative fuse code that you're using for the trigger.
+E-mail if you don't have this at the time that
+
+
+yvu It" l..,l dtlllY ti It" t,Jldl..t"lll lll, yvu\..di I fJUl
+an A and then update it on the back end Once you get the creative assignment, but you will need to update this to be the correct creative ID, so I' II just put.
+Na for right now, since I don't know the creative .assignment yet.
+And then you can just click add and you can see in.
+Placement manager.
+I'm just gonna go to the job monograph. You can see or actually. I'll go to the package tab.
+You can see that there's now this package and then within the package you will have the banner placement and then also the custom e-mail placement And then from here you could just push to Prisma and then it will show up in Prisma.
+
+Jacqueline Derron 34:25
+Azim.
+Thank you, Carly.
+Don't forget to go back and update your creative IDs once you have them right.
+That's the reason it's in the metadata. It means that you can always u(Xiate those fields, right?
+Anything in the metadata, you can always go and update anything in the strings. You cannot.
+The strings are the names.
+OK. next slide.
+So in placement manager, you're also going to see added value and make good flags. That's a yes, no.
+So for added value that's any media that's provided. Typically when the campaign has been approved.
+It's basically a. It's offered based off of a partnership, making sure that we spend a certain amount.
+It's going to be additional metrics. basically. we just didn't agree to pay for it.
+We got this for free.
+AMEGood is when something we11t wrong. Amit Good is when something underperformed.
+It didn't nm as planned.
+Maybe the ad didn't serve correctly.
+It ran in the wrong placement. Maybe we underdelivered.
+They owe U.S. media, so therefore we want
+to make sure that they're separate packages for added value. There are separate packages for make goods. The rate type should be free placement manager.
+You just say yes if it's added value.
+Or no if it's not in the in the added value section. There's also just a a drop down that does make good.
+You put yes or no there too for a makegood.
+We need this for our verification reporting that we do.
+We have to report out on all of our added value and all of our baked goods.
+We're also gonna meet with the verification team to talk about what we do in over delivery situations and we'll follow up with some training on that too.
+OK.
+So we do some weird stuff on Novartis, right?
+And the main the one thing that we do have happen sometimes is you might have a scenario where we have many tactics, but there"s only one package. So anytime we have multiple tactics that are gonna be running, but the partner only wants to put it all in one.
+Package you have to create what's called a billing line item.
+So you're gonna have a package for the
+
+billing line item, and then a separate package for each of the tactics you're running.
+So Doximity is a great example of this.
+They love to say let's run a dock alert and a dock spot, so you'll create a package for the billing line item. The tactic name would be billing line item. The rate type would be flat or whatever. The program rate type is the fee type.
+There field that's employees.
+The manager would be bilfing lineum. So you're saying hey?
+This is where you house all the spend, and then you're gonna push that billing line item to Prisma so that you can get this Prisma package JD and then you need to create a pack.age for the DOC alert and a package for the doc spot and then in.
+The field that's called billing line item Prisma package JD, you link them all together. So you put that Prisma pack.age ID from the billing line item into that field and in place manager in the metadata so that we know to pull the spend from the billing line item.
+And alley it to the DOC alert and the doc spot each of your tactics in Prisma will need to have Prisma planned units.
+So that we know which tactic is going live and when.
+So Carly's gonna demonstrate how we do this within placement manager.
+Carly, do you wanna share your screen again?
+
+Carly Fisher 38:20
+Sure.
+For this one I can just use a package that was already created just because it might take some time up to.
+Make 3 net new packages.
+So for using Doximity as an example, I guess I can make a billing line item package first.
+Is that we don't have yet.
+So for the dimensions, it'll be a package. In name site.
+
+Jacqueline Derron 38:50
+Actually, Carly, let's just go and click into one of the DOC news real quick.
+
+Carly Fisher 38:54
+OK.
+Yeah, sure. Figure it out.
+Yeah. there's, yeah.
+
+Jacqueline Derron 38:56
+Yeah, right.
+Let's just look at it. Yeah. and then let's Scroll down.
+Right.
+
+Carly Fisher 39:04
+So here you would need to put the billing. We didn't set up on Cosentyx. This way 'cause we got guarantees and billing breakouts for each tactic. but.
+
+Jacqueline Derron 39:04
+Where are you there right here. Yes. exactly.
+Which is the right way to do it? Go the Carly way? Do it.
+The Carly way. That's the right way.
+The billing line item is only when the
+publisher literally refuses.
+So as Carly was saying, her team made sure that there was guarantees and breakouts for your programs.
+You should always do this.
+This is just a rare scenario. When they we
+
+had to be forced to do it like this.
+But let's just pretend for the one we're showing here. If you had to set it up and you're like the spend's not in this package, it's in a different package.
+You put the Prisma package ID here and that tells us for this package here where we need to go and find the spe11d.
+So you can use this for other scenarios too, right?
+If you ever need to connect two packages together, just put the Prisma package ID here for both of those packages.
+So put it for the billing line item and put it
+here for the actual buy so that we know.
+What how to connect the spend together between those two packages?
+And the Prisma ID we use it because it's it used to be our source of truth for the IDs. but that make sure you're putting the Prisma ID there. right?
+
+Carly Fisher 40:16
+There may be.
+
+Jacqueline Derron 40:26
+Starts with AP, which is different than our placement manager ID. Any questions? OK. Do you wanna go back to the side?
+
+Carly F her 40:39
+Yep.
+
+Jacqueline Derron 40:43
+Explain. So we also are going to use this field if you guys ever do have an issue where you did traffic a campaign and then after it launched it was like Oh no. I need to re traffick and this might happen if you did the wrong Prisma product.
+Name you did the wrong campaign or you did the wrong supplier.
+Code it's already gone live, and you're like, oh, no, Jackie, I need to retraffick.
+Happens OK.
+So what you're gonna do is you're gonna take your do not use package. And historically, what we've asked is for you guys to update the names in Prisma, right to say do not use because of the API you between placement manager and Prisma, you're gonna be unable to.
+Update the names in Prisma. So what?
+We ask you to do is in your do not use package.
+Go ahead and update it to include in the description.
+Dnu and then we want you to pretend like it's a billing line item.
+So you'll create your new package with your new placements, and then you'll connect those two together with the Prisma ID.
+See how it looks like AP there your Prisma
+ID always starts at the P.
+That ID you can link them together between the do not use package and the new package. All you're saying to us is these two are connected together.
+You need to find the spend from these and add them to spend together.
+So that we can do that on the back end. Next slide.
+Rollovers are very similar, right?
+So a rollover is anytime you bought something. Let's say we're about we're about to hit 2026.
+So let's s.ay you have a buy and it is going to continue into 2026. Unfortunately, because of billing, you're gonna have to retraffick the whole buy.
+So when you retraffick the buy and you're setting this up for 2026.
+You're going to put in the rollover section a ves no.
+
+So that is.a rollover.
+You're gonna give us the Prisma package ID
+for the previous year's buys.
+You're gonna give us the 2025 Prisma package ID.
+This package ID says hey for this program that's running in 2026, it also ran last year, so it connects them together.
+You need to tell us how many months it was live last year, 'cause. That's part of our calculation to do a cost per month for the spend. And then you also have to tell us how many months the program's gonna be.
+Live in totality.
+This can be an estimation.
+It's OK if I'm gonna add the months it was live in 2025. Plus the months live in 2026. This would be the total months live.
+So these you have to read traffic and you have to fill out all of these fields in order for us to correctly report out on spend for rollover programs.
+Any questions?
+Again, these are metadata fields. so if you ever didn't do this and you're like, Oh no.
+I have a rollover back from 2024. I never updated.
+Go update it.
+You can do it at anytime, right?
+It's metadata fields. so please go and update any rollovers that you did not properly indicate from 2024 into 2025.
+Next slide.
+Production fees.
+So ideally we used to say breakout production fees as separate packages because of a variety of different reasons, but ideally include your production fee in your working media spend, so that there's only one package.
+Please this way we're not searching around for data anytime we see a production fee. If you do need it.
+And tvwo two different packages.
+Create a production fee package and attack
+u1<• package.
+Again, you're going to use that Prisma package ID to connect them together.
+So in the production fee Prisma package ID, you're going to put the Prisma, you're going to put the Prisma ID for that production fee there. And then in the tactic that it's associated to, you're going to give it also that Prisma package ID, you're linking the packages to.
+So that we know that production fee belongs to that tactic or that working media buy.
+Any questions?
+OK.
+
+
+Gabrielle Charles 45:14
+Oh, I have a question.
+
+
+Jacqueline Derron 45:14
+Next slide.
+Yeah, yeah. Go for it.
+
+
+Gabrielle Charles 45:17
+So when you're adding, when you have a production fee, that's like part of a buy, but like s.ay it it has a rate like there's an example I have of the current program that's like a cpuv rate.
+
+Jacqueline Derron  45:23
+Mm hmm.
+Uh huh.
+
+Gabrielle Charles 45:32
+And there's like an upfront fee in January, but then the program officially launches in March,
+
+I you know, l want to show that the budget is in January, but I don't want there to be units.
+'Cause then that makes it look like it's live. and I know, like usually your team will.
+
+Jacqueline Derron 45:48
+Yes, that is where you. That's where you do need the two packages. right?
+So that's a great example of how you should have a package for that upfront fee with like the rate I'm guessing probably is just flat, right?
+Because it's free in January.
+No planned units for it because it's a fee.
+Put it in as a production fee in the fee type. Create a separate package for when it goes live in March with the cpuv.
+Rate connect them together. Take the Prisma production.
+Fee from the the first one that you built put it on the back end there for both of EM so we can connect them link EM.
+
+Gabrielle Charles 46:26
+Yeah, the thing that made it interesting with this package though is that like, say, it was like SOK with like a $5 cpuv rate and the units are calculated based off of that SOK. But part of that SOK has a production fee. So techn.
+Like it's like 37 K.
+That's actually, you know. the working media. But like the total number of units is based on that SOK and so.
+I ended up having to just like.
+In order to have the correct units, I made the buy flat and I noted that it was a CPUV in the 10, but that was a tricky one and I could like I could like go off on the side with this about you.
+
+Jacqueline Derron 47:08
+We yeah, I think you did it there.
+You did it the right way. I would just say though, once we start automating for planned units and collecting that data from the publishers, we're gonna have to figure out what we do for stuff like that right?
+
+Gabrielle Charles 47:24
+Yeah.
+
+Jacqueline Derron 47:25
+We'llfigure it out.
+
+Gabrielle Charles 47:27
+Cool.
+
+Jacqueline Derron 47:31
+But that's a great example of when you would need the two packages, right?
+There's package for the upfront fee and then a package for when the buy actually goes live.
+Link em together with the Prisma production fee ID.
+OK.
+So a lot of the information we just went through is just like, how do you set it up right?
+How do I get like my little base going and then we ask for a lot of other data and that's so we can break out the buy in the reporting. So any of the other fields that we're asking you guys to enter are so that we can break.
+Out the data in very specific ways.
+So again to the next slide we ask for you guys to put in.
+A couple of places. What seems like duplicative data.
+That right?
+
+You're why are you asking me for Medscape? Being entered three times into the system?
+And that's because we use those fields for different things.
+So the in name site is the Prisma site name or Prisma supplier name.
+It's the must match our Prisma supplier list which is like that 10 list.
+It's the 10 name that everything gets built towards for that publisher.
+The supplier is a site that was actually run and is going to match our metric dictionary.
+So an example here at the bottom is
+Haymarket right?
+Sometimes we're billing Haymarket and they're the supplier. right?
+We're running on Haymarket inventory, so it's.going to be Haymarket Haymarket but Haymarket also owns PRI, so the in name s.ite would be Haymarket. The supplier would be PRI Multimedia medical. Same idea.
+Sometimes we're running across all of multimedia medical inventory.
+So the supplier would just be multimedia.
+Sometimes we're running specifically on cancer news network for multimedia.
+So multimedia in name site while the supplier would be cancer news network.
+Same thing happens with Hap Shin Chan that one.
+That one.
+We're billing and then the supplier is urban health hemp communications.
+Great example here. In name site, hemp communications supplier Cons.ultant 360.
+Have communications.
+The suppliers first managed care.
+We do thissimilar setup for programmatic too, so if you're ever running a PG deal or PMPdeal, your name site is going to be PM precision.
+Your supplier though, is going to be where you're running.
+Maybe we're doing a PMP deal with Health union. The supplier would be health union. So this is where it tells us what site we're
+actually running on.
+We need to make sure that we're breaking out.
+Pmx lift apex and active in a very special way.
+So you're going to have your in name site being pmx, lift active or all of our different types of apacs.
+We have apex deals, apex audio, apex Outcomes, apex, YouTube. Make sure that you are selecting the correct in name site for these breaks so that you bill it correctly.
+Kylee was telling me some of the teams had
+to retraffick stuff because they. Labeled the wrong apex.
+So just double check on that one.
+Make sure you are always selecting the proper one to bill the supplier is gonna be where we ran, right?
+So if we did an apex Amazon deal. we need to make sure that
+We are putting down exactly where we're running and then we do use the DSP field.
+I know it's not exactly a DSP, but the DSP field helps us keep a very clean list of active pmx lift and apex partners.
+That we run with. So you'll also need to make sure that the DSP field is filled out particularly with whatever by a type you're running with one of these three partners.
+These are our internal partners. Again, if you don't see your site. you can request it using that smartsheet link.
+This is.
+Going one of our most important fields that WP h;ivp in nl cf'mf'nt m::1n::1nPr ii:;thP t rtic
+
+name.
+So you can review the Smartsheet media plan to see exactly which tactic we're running.
+Talk to your partner. Right If you don't know what tactic you're running and you don't see it on the list talk.to your partner.
+Make sure you understand what tactic you are running. The publishers all have very, very complete list of all of the tactics.
+For any of our HCP ones, these are the exact same tactic names that we have in our metric dictionary.
+So every single time they have a new tactic, they're sending us a list of their tactic names, and that this is that list that they've sent us for HCP, for DTC. It's going to be a little less.
+bact it's going to be a little bit more generic and that's because for OTC, we're really using it for benchmarking purposes.
+But review in your smartsheet what that tactic name is and make sure you're selecting the correct tactic.
+Field this is in the metadata, so if you do ever make a mistake here, you can always go and edit it and that is one of the follow­ ups from the bootcamp. lf you go to the ne>ctslide.
+Just keeping in mind here, make sure you are requesting a tactic. If you go there and you do not when you go to place a manager and you go to that drop down, you don't see your tactic.
+You need to request one for HCP. Again. These are the tactic names of the same tactic or product names that the partner send us, and the NPl data.
+We track all these tactics, they all have a unique ID in them and unique name.
+And they are exactly the same names that they send us the data with.
+So review your metric dictionaries for HCP. When you were looking.
+For your tactic names again. if you don't see it submit it to that smartsheet for OTC.
+These are going to be more generic tactic names.
+They're used just for benchmarking purposes, right?
+So if we're doing Google YouTube affinity, that's going to be the same across all of PHM, actually, so that we can actually benchmark all of our DTC tactics for 2026. I'll be working with you guys to make sure that you're submitting all new items to the,
+Dictionary.
+So we're submitting them at an enterprise level so that we're not.
+Meeting and getting submissions by brand, right.
+So we wanna make sure that we're getting a complete list of tactic names by by brand so that it's not.
+bcuse me across all of enterprise so that we don't get a separate submission by brand. There's a complete list .at the top of all the tactics.
+There's the metric dictionary linking and then if you log into placement manager, that's also our complete list
+So, Carly, do you wanna show how the team can look in in the smartsheet to see their tactic names?
+
+Carly Fisher 54:40
+Sure, I can just open up.
+I don't know where is this links to. Oh sorry.
+Let me go back.
+
+Jacqueline Derron 54:47
+Oh. 1 didn't link to the the the smartsheet in it. Sorry, the different smartsheet.
+Sorry, this is the the link to the form
+
+amerem one.
+
+Carly Fisher 54:56
+OK.
+Yeah. So I'll just put. I'll pull up.
+So in the smartsheet I'll just go to.
+Hello, Hep one for example.
+But the tactic name should be in. The tactic column here.
+So whatever is in the tactic column, here is
+what you should be looking for in the drop down in placement manager. Sometimes the way partners provide the names will be a little bit different, but we want to make
+sure that in the end to like media plan work.
+That we are using the name that reflects npm so that way all of our documents are equal and match back up. So like for example the provider navigator and our media plan workbook should match up to meet tactic name in placement manager that's labeled as the provider NAV.
+So anything in this tactic column you want to mak.e sure is directly correlating back to the tactic name in placement manager.
+
+Jacqueline Derron 56:20
+You want to filter for the drug monograph so we c.an show the team how to see the emails versus the banners.
+So this was a a nice way for when you have a multicomponent buy if you search for that tactic it will show you that example we were looking at for drug monograph, right.
+So you can see tiere you got a drug monograph and it comes that program is also coming with a triggered e-mail.
+So if you scroll to the left or. We're. Yeati, we're there you go.
+You can see here how the display portion of the buy that has the spend. So your Bl inventory type or your budget channel is going to be display.
+You're going to have one package because you only have spend for one of these channels one package. and then you're going to have a placement for your banner, and then you're going to have a placement for that triggered e-mail or a custom e-mail there.
+So you're going to have twu separate placements with one package.
+Search.
+And make sure it always matches to that tactic name.
+So we need you to go back into your guys 2025 campaigns and make sure that your tactic names match here and make sure that you have put it in the correct Bl inventory type and correct Bl format type for your buys.
+Let's go back to the presentatiori.
+OK.
+Keep going.
+Yeah, I think we're on slide 22.
+So we just went through that example. Yep.
+Cool.
+So then make sure guys for peer-to-peer or P2P buys. Also our NGEor NBA whatever they wanna call it match.
+Whatever they want to call him. we break these out in a field in placement manager called Bl targeting type. If you ever need a special break. 5o if you if the client's askir,g for some sort of special reporting or a different way that they're breaking out the.
+Buy this is where we use Bl targeting type, but most importantly this is wtiere we break: out P2P or peer-to-peer campaigns. And your Nguyen your NBA campaigns. This
+field is in the string we need it in the string.
+In the names, so make sure you get this right when you first launch a program, because if you get it wrong, you'll have to
+
+go rename it and you'll have to rename it in Placement manager. Prisma campaign manager lnnovid Flash talking double verify with the partners and the.
+Dsp's so again, make sure you get this field right and you're indicating match and nge NBA peer-to-pe-er
+Those are the most important things that we're indicating in this field.
+Next slide.
+So again, the Bl inventory type is the budget channel.
+We just went in that example for the drug monograph, right?
+So make sure that in the Bl inventory type you're selecting.
+Your budget.
+So wherever that budget was in your smartsheet that's what you select in that field. And then the Bl format type is at the placement level.
+That's gonna be your asset channel or it's gonna be whatever actually ran.
+So you can have an e-mailwithin your
+display budget.
+You can have an e-mail within your audio budget even it's all based off of what your budget ls versus what the actual asset or channel is.
+Make sure also in that Bl format type field at the placement level you're indicating podcast versus streaming audio. So anytime you are running on a podcast specifically the Bl fonnat type must be podcast.
+Otherwise for your audio buys it is streaming audio.
+This is so we can break this out for our ipmm results.
+Data partner definitions. Now your data team strategy team has been all over this, right?
+This is very important when it comes to all the different state regulations that you get this right.
+So you need to understand the differences betvveen first, second and third party data. First party data is when you get it directly from Novartis, right?
+It's their own digital properties.
+Right now we have a relationship with live ramp and pulse point. To get this information.
+So it's going to be in first party is anytime that you're doing CRM or you're doing any of.
+Anything from site retargeting from live ramp perspective, that is, first party data that we're utilizing.
+2nd party data and you select second party is when you're using the partner's own data,
+So if you let's let's say that we are, you know, running with Pandora and Pandora is only looking at women.
+That are 55 plus.
+They're using their own registration data in order to target women 55 plus. 5o MMD or Healthline can do this.
+Our HCP platforms do this all the time.
+Sometimes we're working with their own target list, right?
+So the publisher might give us a target list.
+We might merge our target I isl our first party target list with their target list.
+That's when you select first and 2nd party data here.
+Now if it is a third party data provider, we need you to select what provider that is.
+Maybe we're running with cross or swoop or you know any of our claims based data as well.Anytime we're overlaying third party data, you need to select which third party data we are running with.
+Any questions llere?
+This is very important when it comes to our
+
+data privacy, so make sure you're thinking about this from a Novartis perspective. not the media or a data provider.
+
+Danielle Love 1:02:32
+Yeah, exactly, Jackie.
+Yeah, just to build on that a lot of times when you're talking to the publishers, right. they're going to call it first party data because to them it is their first party.
+Yeah, but when we need to run through all of the compliance questions that my team bugged you all about recently, we have to think about it
+Is it Novartis first party data?
+If it's the partner's first party data, then as Jackie said it from our perspective.
+Its second party data, so it's fine that they call it first party data, but we have to do that translation.
+To make it through the lens of Novartis,
+
+Jacqueline Derron 1:03:20
+I was on mute.
+Oh. thank you, Danielle.
+So here's some scenarios that Danielle put together.
+Scenario one.
+You're running with pulsepoint or live ramp, and you're using their data our own data to target and buy our data Novartis's data.
+So we're using their data to target so that is the option #1 you'll select first party data.
+Option #2 Health union is using their own data.
+To get to target people along the health union network, that second party data select second party data scenario #3 at the end they're using Novartis.as target list and their own target list.
+To target individuals, select first and 2nd party data.
+Scenario 4,
+You're running with crossix and you're running with swoop.
+Select crossix or you're running swoop, right? You need to put down if it's a third party provider.
+You need to put down which third party provider it is number 5 and there's actually an updated slide here.
+But Epsilon, sometimes we and it might not just be with epsilon, but sometimes we might merge both first party and 3rd party data. If this ever happens. you need to request it from us so that we can indicate it in place of manager. Super important for state Reg.
+That we call out. Anytime.
+It's first and third party data.
+So if that ever happens, we couldn't even think of an example because we're no longer really doing this with Epic salon.
+But you need to come and reach out to us so that we can properly identify that again for regulations.
+And then scenario 6 is another one iluma anytime you're running with that it's type of data provider. Anytime they are, you know using any activity data browsing activity to target your audience. Again, that's a thirst third party.
+3D Artner and you need to select down which third arty publisher you are running with.
+Any questions about your data partner? Data provider drop down.
+OK.
+Next slide.
+Inventory distribution type you'llsee.
+Here we put down a couple of different options here for programmatic. It makes sense. It's P.
+
+GPMPP open exchange SSP deals if we're doing an SSP.
+But whenever you're doing something with a direct partner, you really need to start indicating if it's run the site or not. Pub direct oo means we are running on own and operated property in a very specific content.
+You know you're doing a condition center.
+Maybe you're completely taking over, you know, a competitor's page.
+You're running on specific content.
+Pub Direct run of site is usually given to us for free.
+It's generally you're running across lots of different parts of the publisher's website.
+You're not running on specific.
+Specific Content pub direct programmatic.
+Let's say you're running with health union and they're running using a DSP, They themselves are using adsp.
+Health grades does it too.
+You want to select pub direct programmatic because they're actually using a DSP.
+We're not managing it
+They are.
+It's also known as managed service.
+Network is whenever you're running on a lot of different websites ar,d you have a direct partnership with those websites and you're not using a DSP.
+So those are your four options for inventory distribution type for direct buys.
+Make sure in particular you are indicating. Run of site so that we can break those out from other buys. It's gonna be very
+important for our benchmarking purposes.
+Awesome. So let's dive into when you can actually tag Abhay.
+Make sure you're tagging everything guys.
+Double verify verification. This tells us what is the benchmark for our viewability standards.
+Keep in mind, one by ones can be tagged for viewability,
+The only exception is emails.
+Make sure you're talking to your partners about their capabilities.
+You should understand exactly what they can tag.
+What they can't tag, so for our video.
+And display non programmatic buys are a display programmatic buys.
+Is our threshold,
+Our viewability standards is 70%.
+For video programmatic, our threshold is 50%. If you have a high share of voice or custom buy and you know we have ads at the bottom of the page, it's going to bring down our viewability score.
+But they can accept tags you select. Double verify MRC definition 0% threshold. That's just saying, hey, we can.
+We can tag, but you shouldn't give us any sort of benchmark here.
+We we expect to have a very low viewability score and then anytime something can't be tagged with double verify, some of our FEP buys, some of our HCP partners, you select no verification if they are unable to tag with DV.
+Check out your 10 because that's where our viewability standards are set.
+Play.
+0 audio and video buys are very difficult to set up.
+We completely understand this. We do have an RFP tracker.
+It's a tech rider. We'll be sending it out for this next upcoming RFP round as well.
+So you can go through that techrider and see what kind of tags your publisher can accept for audio and video.
+
+Please try to walk through this prioritization right.
+So first and foremost. it's best if that buy is being served in lNNOVID and has adcm 1 by 1 tag.
+So again, if you have something in innovid, you also have to do a DCM 1 by 1 tag DCM 1 by 1 tags is where we get that DMA level data.
+Can't get it from inovid.
+So first you got to do inovid and a DCM 1
+by 1 tag.
+That's going to be how we serve a lot of our addressable TV's.
+R OEM buys CTVOTT any of our audio or just your standard online video. Your ad serving method in placement manager is going to be served in DCM and INNOVID in your creative length.
+Your for the creative length.
+So how long the video or how long the audio ad is you're going to put that in the size or the dimension and then you're going to also put the creative length and the size and dimension.
+So you're putting in the description. And you're going to put it in the actual.
+Size. dimension field and placement manager in Prisma.
+Make sure you're setting up the primary ad server to be innovid and the Prisma ad size field iszero by zero. That's what gets things confusing, right?
+So in Prisma that ad size field is zero by zero. If you can't serve it in DCM, serve the video in. Sorry if you can't serve it in innovid, serve the audio or video ad within DCM. You'll need special approval by Ricky.
+And the media tech team, your ad serving methods can be served in DCM. Your creative length is going to be the size or dimensions you're going to set it up.
+Basically the exact same as you would for innovid, besides the primary server's going to be DCM.
+Again, you need special approval by Ricky and the rest of the and Julie, of course, the reserve beautiful media tech team, If you can't do DCM serve go innovid 1 by 1 and DCM 1 by 1.
+And this is so we can get. Tagging what is quartile tagging?
+That's so that we're able to tell you.
+Did you complete 25, fifty, 75% or 100% of your audio and your video by? 5o keep in mind this is audio and video, so if we do a 1 by 1 tag you're gonna put the creative length in the description of the placement the.
+Placement size will be 1 by 1.
+Your primary ad server will be in a video and the Prisma ad side will be one by one. You can't do that.
+Go down to the DCM 1 by 1. You won't be.
+We won't be able to do quartile tagging, but at least we'll get that OMA level data.
+So that's gonna be .super important site.
+Serve 1 by 1.
+You're gonna put the link in the description and then the placement siz.e will be 1 by 1. If you can't tag again, we still need a placement OK. so that's only gonna be for those super custom buys that we're doing.
+Mvpd's, Any of our addressable TV that can't be tagged.
+You know, we did those podcasts with l heart.
+Don't do this.
+This is a very rare thing.
+OK.
+It's taking our team a lot of time to get a lot of that data in.
+So this is very very last option here, but
+
+you'llstill need a placement. The ad serving method again is site serve.
+No tags.
+Put the length of the creative in the description, the placement size or dimension will be zero by zero and then in Prisma you're not going to have an ad server and the ad side doesn't really matter either because it's not tagged, but the data in place of manager.
+Is still.
+Very excited.
+It's the. lt's still very important place a manager so we know to go and get data for it.
+So, Carly, do you wanna maybe show, especially in Prisma where the team can indicate the primary ad server and the Prisma ad side field?
+
+Carly Fis.her 1:13:14
+Yes, Mia, just pull up, Prisma.
+And I can just pull up a campaign, for example purposes.
+Let me go to.
+OK. so for mak:ing sure that the zero by zero and one by one is reflected in Prisma itself, you need to make sure that you're going here to this drop down and selecting the traffic layout. And then from here where it says tag size is where you either.
+Want it to reflect as zero by zero or one by one, so the primary ad server will be a drop down here and then you would select in a bit or DCM.
+Based on the partner and what they could take in the slide, we just went through with Jackie and then.
+For the tag size, it'll actually be determined by whatever you select in the placement type field.
+So for instream video that will give you if you select that it'll give you a zero by zero.
+Something to note about this section in Prisma, particularly, and you'll see it as the error I'm getting.
+Right now is once you sign out the tag size In the traffic layout and push from Prisma to your ad server, you cannot go back and re or I guess switch over so you see how it's giving me an error here.
+This was already pushed as a 1 by 1, so when I try to change it to be an in stream video it's saying that this can't be changed because an ad server update was set.
+So something to definitely double check for
+before pushing.
+From it Prisma to your ad server for trafficking is to make sure that this column here in this layout accurately reflects the tag size you need.
+Otherwise you will need to duplicate the placement and then re push to Prisma.
+I mean and then re push to the ad server from there. So in order to just prevent doing double work 1 would just make sure you're checking this before you're going to the traffic tab and pushing i1 over.
+So.
+You can see. Hear that?
+If you click like in Page will give you this one by one tag size and then if you click.
+The in stream video that will give you it won't show it now because this was already pushed, but it'll give you a zero by zero here and then once you push to DCM or inavid it will sllow up in those ad servers as zero by zero.
+And then you can see also that these has to be trafficked as one by ones, which is why the.
+Creative name.
+As the one by one placement in it.
+R,,t ,.,o rl,-. n,-.to in tt...:::i::i.-f, ,:ii n.l::>romont
+
+
+'-''--" nL '--''--' "'--'L'-- ... L"'-- UL.-L L>• t-'......_..	_.. L
+
+name what length the audio is, so that way we do ha1Je somewhere to track what is being served.
+Of course, if you were to switch the.
+Asset that was running from like a 60 to a 30 or whatever, you would just need to make sure that your placement accurately reflects that as well. If you are putting the length in the placement name.
+But was there anything else? Jackie, you wanted me to go through in Prisma.
+
+Jacqueline Derron 1:16:53
+No, that's perfect
+Does that make sense to everyone 'cause it is just a little confusing 'cause you're basically putting in the ad server, the ad serving method kinda twice, and then that"s, you know, the size is where things get a little bit more confusing too, but makes sense to everyone on.
+The line. Awesome. OK.cool.
+So then the same sort of thing applies wllen we're looking at our companion banners, right?
+Talk to your partners about what they can accept.
+Sometimes they can accept just one placement.
+So when you're setting up your videos or your audio buys, right. your pack.age is going to be based off of the budget channel. The Bl inventory type there. right?
+So make sure that you're selecting for your video.
+Even if you have a companion banner running right?
+We want to make sure that that package is what the budget"s coming from.
+The Bl inventory type would be video and then you can have a placement. The placement or format type would be video and companion banner and then Bl format type would be, you know skippable or non skippable mix for your video here.
+So this is a place where this is how you set it up. If the partner only accepts 1 placement look at that tech RFP that we're going to be sending out to see if your partner likes to do just one placement for their companion banners.
+Or if you go to the next slide.
+Sometimes they ask you for two placements, a placement for the video or audio, and then a placement for the companion banner. Again. your Bl inventory type is your budget
+Channel it is going to be focused on where your budget is coming from and then you'll have a placement for your companion banner. the placement or format type would be companio11 banner Bl format type would be video companion banner and then if you have a separate placement for.
+The video you would have that placement or format type.
+B28 video and then the Bl format type would be OOV, sktppable or a non skippable mix.
+Try to break out skippable versus non skippable.
+Try to force your publishers to do that.
+That will be a new break that they want in ipmm soon e11ough, so please make sure you're trying to always break it out between skippable and non skippable if possible.
+That's how you do companion banners, OK.
+So we've talked about how you set up everything at an overall level.
+We've talked about how we llave all these different breaks in our buys. We went into tagging and now we need to make sure you rmvs 1mliPrst nrl thP c:rPativP lPVPPI tun. :i:;;n
+
+generally with our ads served buys, we have the creative aor's go into creative manager and set.
+Things up, but anytime it's a one by one, it's onus.
+To set up the creative level. So first and foremost this happens a lot with emails.
+So Carly, if you go to the next 1, so it's super important that you understand the difference between custom versus newsletter emails.
+A custom e-mail is when the entire e-mail has our content right?
+There's no other content in that e-mail besides our e-mail.
+We come up with a subject line we come up with everything in there.
+Your Bl format type can be triggered. E-mail it could be custom e-mail.
+It's you're gorrna see a custom drop down list.
+First. based off of what you put at that budget level.
+So then your Bl format type is gonna give you a list of different types of emails, but a triggered e-mail is also referred to as a custom e-mail. And then your placement or format type would be CMEL which stands for custom e-mail and then this.
+Difference is newsletters. right?
+Newsletters are we also refer to them as banner emails?
+It's just a banner within an e-mail.
+The rest of the content is the publishers, so or it could be.
+Even, maybe even our competitors.
+Who knows, but the rest of the e-mail is not just our content.
+It is just our banners that are in the e-mail so your Bl format type is gonna be newsletter or could be newsletter with display depends on what you selected at that Bl inventory type or that Channel level and then this is just what we're putting down as our.
+Subchannel and then your placement or format type would be bmel which would be your banner e-mail.
+Here are our setup rules for one by one.
+First you need to have packages for each of your emails, so you want to make sure that you have a separate package for your e­ mail tactics. If you have an e-mail component that runs in different months than your other components of your buy, you'll need to create a.
+Separate package for those emails as well. Tie them together like a billing line item. Placements 1 placement per e-mail send.
+So you cannot have multiple placements per e-mail.
+The data comes back incorrectly. The NPI data comes back incorrectly if you have multiple placements.
+So if you have like 3 banners going into a newsletter, you still are going to have one placement even though you have three separate banners., 1 placement. you break out the sizes at the creative level.
+For the fuse ID, make sure you're always filling out that creative 1 by 1 ID.
+Field in placement manager, that's where you put the content ID.
+That's where you put the MLRID. You don't have that ID yet.
+Put Na but you must go back and fill that out. A lot of our e-mail partners, DMD in particular.
+They only want to track our emails.using that ID, so make sure that you are filling that out. Once you have that information.
+If you have multiple fuse IDs in one e-mail. You're gonna break out.
+Th:.tf.,co In
+
+Those fuse IDs at the creative level. So again one placement.
+Multiple creatives. And then you're going to see a field in the creative level that's called one by one name.
+It's going to be able to label out exactly what your impression tag is looking at versus all of your different dick tags. So each e-mail action should be indicated at the creative level in that one by one name so we can see exactly what's tagged. Did you tag?
+The open was that the call to action was that the PDF you need to tell us in that one by one name. So we know exactly what you tagged with.
+Here 1 by 1 next slide.
+So if you have a custom e-mail with
+multiple content IDs, again at the placement level, do one per e-mail, send. Each custom e-mail should have one placement per e­ mail send. If you do have only one content ID, you put that in the one by one creative
+ID field.
+And place a manager at the creative level. This is where you're telling us exactly what you tagged, right?
+So you're gonna have an impression tag that's your open for emails, right?
+So your 1 by 1 tag name will be open.
+For your imres.sion tag, any of the clicks within that e-mail need to have a different 1 by 1 tag name. so you can you can select Pi if it's the Pi information PDF, it's the PDF you're tagging CTA. If it's a call to action, your creative type will.
+Be tracking and then your size is just going to be one by one across the board 'cause this is a custom e-mail.
+You want to go to the next slide. Newsletters make sure that you're again only doing 1 placement per e-mailsend.
+Do not create a separate packet placement for each creative within the e-mail. Tile dimension size should only be 1 by 1. The actualsize of the creative is at the creative level.
+So going to the creative side of things, the impre.s.sion tag again 1 by 1 tag name is going to be open. Creative type is going to be tracking, trackJng. Your creative size is going to be 1 by 1 bec.ause.
+lt'.sthe open of your e-mail within the e­ mail. Each click tag is gonna be each of your separate banners within that newsletter.
+So let's say we had a banner that was Melanoma, one that was long one that was RCC. You would have in there. The one by one tag name is image because it is just an image.
+It's just a banner that we are putting within that e-mail.
+The creative type is static.
+It's a static banner within that e-mail and then create a size as the actual creative size.
+Of that banner. making sure that you're putting down the creative agency too.
+So we know exactly who is building out that creative for us that we're putting within the newsletter.
+So Carly, do you want to open the one by one builder and show them where they can find this information?
+
+Carly Fisher 1:25:44
+Yep, it's just opening right now.
+Yeah.
+Also oh sorry, I'm just gonna flag too that there is.
+
+Jacqueline Derron 1:25:53. Is it perfect? Mm hmm.
+
+Carty Fisher 1:25:59
+
+_.	A file that gels updated by the Media tech
+team and other teams as well. So anytime you need to build out a one by one, I would recommend going into tllis link and downloading the document from here as if
+there are updates that were made to the
+one.
+By one tracker, it won't necessarily be reflected in the version that you downloaded.
+From whenever we downloaded your last
+version. That I can. Open it up.
+So you would just fill it out the way that you
+typ1cally.
+Would for any.
+Creative. So you would do the brands, tile campaign type and then for the creative message this is.
+The like free form space.
+So there's no drop down that you need to include here, but you should be using the creative mess.age that is being used for the e-mail. So if this is.
+Like an impression tracker for example, you would just put impression tracker if it was an image you could put
+
+Jacqueline Derron 1:27:10
+Wait. sorry, sorry, that's not right
+
+Carty Fish r 1:27:10
+Emmett sorry.
+
+Jacqu line Derron 1:27:12
+So the creative message.
+
+Carly Fisher 1:27:12 Oh, sorry.
+
+Jacqueline Derron 1:27:14
+The creative message, if it is the impression tracker, try to make it the subject line of the e-mail if possible. If you know it for the the creative message for the impression tracker.
+
+Carly Fisher 1:27:2-8
+OK.
+Yeah. So and for supplier, you woufd choose.
+The supplier.
+The e-mail is I'll just use Med.scape for example and then for the unique creative ID fuse code you would just drop in the fuse code that was included in the link matrix.
+Again. If you have multiple fuse codes in an e-mail, you would need to make a separ.
+Creative for each of those fuse codes.
+So just for example, I'm just gonna do that and then the expiration date.
+This should come in the brief form from cast, so you should include.
+Any of or. I guess there should be one expiration date for the e-mail and make sure you're including that here as well so I can just put it up here and then content topic is a drop down and you will need to get this information from the A.
+So you c.annot traffic a one by one unless the AOR confirms or 1 shouldn't say what you can traffic.
+One by one, creative that we are generating unless we have the AOR confirm whatever this content topic needs to be.
+So you would select whichever topic the AOR assigns and then for the one by one tag name ID.
+This is where you would select for the impression tracker if it was at open, or if it was.
+The rr or PDFor just a banner? You would select whichever 1.
+CTA would be for like the click taqs so I can
+
+select one as an example and then.
+The creative agency will be whatever agency you're working with.
+And then.
+I did notice in here that in this version the creative type, the only option that we have is tracking.
+I know Jackie just went over that
+That there are multiple ones that we can use, so this might need to be edited in the actual.
+
+Jacqueline Derron 1:29:23
+Yes.
+Julia. let's make a note of that.
+We should update that to have static, right? So tracking is going to be anytime.
+It's just.
+Like a impression or click.
+
+Julia Johnson  1:29:36
+So.
+
+Jacqueline Derron 1:29:36
+But if it's like an actual static banner, that's when we want to put down static there.
+
+Julia Johnson 1:29:38 Good.
+Yeah, let's.
+Yeah, let's let's connect on that after that, because I know it's gone b.ack and forth. Actually it used to. yeah.
+
+Jacqueline Derron 1:29:51
+Or if between the two.
+
+Carly Fisher 1:29:51 Please can you?
+
+Julia Johnson 1:29:53,
+And we were, well,we can.
+Ye.ah, we can take that offline, but yeah, we'll update it to make sure it's, yeah.
+
+Jacqueline Derron 1:29:56
+Let's take that offline.
+
+Carly Fisher 1:29:57
+Let's take a look at. Yeah, we'll figure it out.
+
+Jacqueline Derron 1:29:57
+Yeah, we'llfigure out which one it should be.
+
+Carly Fisher 1:29:59 Which one it should be?
+
+Julia Johnson  1:30:01
+Cool. Thank you.
+
+Carly Fisher 1:30:03,
+And then for creative size, if it is just a custom e-mail, you could put one by one. If it is for like a banner that's being served in an e-mail, you could put the banner size that's being served in the e-m.ail.
+And then once you have all of these drop

@@ -1,0 +1,832 @@
+• Data Enablement N2 - Data Sources and Com... tf- v	fJ Search	?
+G)	6lJ Record v  f Upload * Favorite + Playlist	,fj Team, v
+
+X
+
+
+Download
+
+
+0
+
+Data Enablement N2 - Data Sources and Common Metrics
+April 30, 202S Expires in 114 days • 0 views • SharePoint App • HD •	> Documents ) Recordings
+
+
+
+
+Al-generated content may be incorrect
+
+
+
+OK.cool.
+So this is our end to j,rama.
+So this is our agency side data Rama.
+You will be able to tell the difference between the Novartis data Rama and our data Rama by the following.
+We have this lilce this, like weird like generalized icon with Novartis underneath it in the left side and then poo bulls. This health media on the right stdeforthe1nternal.
+Novartis.
+That lilce N2 data Rama. the agency side data Rama.
+For the client side data Rama I have one open thought I did.
+I lcnow I logged in Zero. OK
+Sorry I have hlce so many browsers open right now
+0
+This one Is a Novartis side data Rama.
+It looks almost identical except for the fact that their icon in the left side is the big no artist's words. and it on the right side is a Salesforce.
+That is how you're gonna tell the difference between the two is I also.
+Open them in different browsers too. because I find ll
+lt'sahttleeas1erformetonav1gate
+And make sure I'm not making updates or checlcing things in the wrong one if I haven't been separate browsers.
+So I typically lceep the Novartis one in my like Chrome and I lceep lilce the N21 and lilce edge.
+But whatever makes it easier. they look lilce 1dent1cal when you're m ttiem.
+
+Andrew Ryan 1:42
+0
+
+RachelPiot 1:47
+But for the agency side one we'll we'll tallc about this one first. so.
+Bas,cally. there's we have a couple tabs at the top that you'll have access to.
+To visualize. which Is the actual dashboard views analyze and act which Is where we typically pull reports or like have !flee automated reports generating.
+Also. where you could create a pivot table, so if you're if you need a look up lilce data quickly without lilce using a dashboard.
+That ts wtiere I typically or where we typically do a lot of our quiclcanalyzat1on. because you could just.
+Add in rows or streams or columns and dimensions like.
+Really quickly. And then there's connected mix and connecting connected mix.
+For the N2 datorama fully just houses some of our data streams and some of our connections and metricsthat-·regettmg.
+So I'm gonna focus flght now just on. The database portion of it.
+So what we have, how we have this set up is I·m
+gonna collapse that really qu1clc. We have a few different.
+Views 1ilce like like kind of lilce shelves for dastiboards so.
+End to monthly report is where all of our dastiboards are that are actrvatIon teams.
+Our QA in a month. Thenthere'sadassificat1on.
+Dashboard that we use. So hlce if people are telling us that there's issues wrth the data coming through on their dashboards. I'll typically use the dastiboards in the N2 classification QA to confirm up some stuff on whether I think it's like an issue of us getting data.
+Into datarama. Or if I thinlc it's like it's being classified incorrectly.
+lqva1t.
+I don't currently use. but we wtll be using. Saying these are.
+Excuse me, I am tilce suffering with my allergies
+today.
+lqva is basically all the data that - are getting from iqva.
+So we use Iqvta as a measurement partner on Novartis versus lilce acrocess or comScore.
+So this is all the data that we're inges11ng from them.
+And then the only other one that we use is typically the work in progress.
+So this is where if Kyle is or like one of us is creating a new dashboard
+Will create 11 first in the work of progress and then when we push. publish it or push 11 live will create like tts own collection.
+Underunderth1s section
+
+CJ
+
+l::::
+
+So for the monthly reports..we have quite a few
+So I'm going to skip these two for now, but we are team, w each team has acces.sto these dashboards or review of these dashboards.
+They they get like a published link. so they can;ust access it through the link without having to like log
+
+And this is how their QA, QA ING every month
+So they"re they're told to come in and they're mo,t of these are kind of split out the same way with their own.
+Reporting dimensions so for display. The the display team.
+So programmatic and direct emerging will come in here.
+They"ll lookupthebrand name.
+AME that they're looking for, whethei-it's branded or unbranded and whether it's DTC or HGP. And then select the month that they"re supposed to be QA ING
+So they they just got dorie. QA in March.
+And all they're supposed to do ;ust come in here and tell usif the riumbers look right. So they're told to come in.
+They"re lil:::e, you 1:::now, we're like, hey, are we pulling, lil:::e, do you see everything pulling in?
+Like. arewegettingcostmetrics? Are we getting impressions?
+Are we getting dicks? Are we getting Ctr. Are we getting?
+Ability and then there they come down here to see. We split out the partners by wtiett1er they're an endemic partner or just like our reach partner.
+Or if they're endemic, social
+We have partners classified this way and typically to be honest with you, I still don"t know which partners classify as what like I know.
+You know for programmatic?
+They'reafwaysa reach partner versus like an endemic partner.
+But typically. if we if it's being classified iricorredly, they let us \::now and we say, well, what is this partner?
+And they let us \mow
+And then we just reclassify. Jackie knows a little is a little bit more like off to the feed on what is what. But I lstilldon'tnecessarilyunderstaridwhat makes.
+I don't necessarily understarid when we can notify.
+Figure out when a partner is considered a social endemic partner versus ,m endemic partner.
+But like our social stuff is in a different dashboard.
+So this is like social bought through their partnei-s, so it does get confusing. but if you're not sure, you can always ask us or you can just have the direct team or the programmatic team clarify what they're supposed to be considered, and then they'll check the cost.
+They"ll checkthecostandthenthey'II clieck1ike the what is happening here?
+That's weird
+I don't know why those were pulling in when they"re selected
+But basic.ally they'll check llke OK. Does the oppressions look.correct?
+So if they if the direct team launched something with liealth healthline. their responsibility is to go to let us know if this does not matcli Prisma. And if this does not match DCM, if it does not. they let us know.
+Andlik.ematchisloose.
+There is a discrepancy threshold. So like we say, if it'sanythiriggreaterthan3%toletusknow
+With Prisma, Prisma is like constantly in flux.
+So that is guaranteed to be like within that 3% range. The the amourits is always isalways changing if they're actualizing and changing that figure, we tell them to wait two days before checking the dashboard again
+Because it takes a whileforthefigureto update. So they·re supposed to check all this and let us know if something is wrong
+Typically for display, l"m gonna let you know right now for display.
+The the API connections for display are usually on point
+There's usually like no. Like, there"s usually no real issueswithdisplay. lfthereis, it's rare or it's lil:::ea
+
+So a lot of the times if I see a question coming through with display, I'll typically take it because I Just thirik that they're looking at the data wrong
+But this typically display is like. There's usually no issues here.
+For programmatic. it's the same. They're supposed to be checking if ttie cost matches
+Now for programmatic, we don't pull spend from Prisma,righti'
+Like Prisma for programmatic isJust a shell.
+Of a budget.
+But is it factual to the like bidding numbers in the DSPand the cost that should be generated from theDSP?
+So that cost is coming from the from the DSP platform itself.
+So programmatic is supposed to come in here and say, hey, does this cost, is this cost in line with what's in the DSP, is this impression number accurate?
+And again. thisimpression number iscoming from DCM.
+DCM isoursourceoftruth.
+So they're supposed to be coming in here and checking that and then there's a burich of creative
+
+
+metrics at the bottom that are year to date We don't get a lot of questions on this
+I think this isjustaniceto have.
+So again, they're more they should be checking this al the partner level and letting us know if there's any issues.
+You'll see this benchmark section al the top And some brands have Speclficbenchmarks tied to it
+Oh.
+OK.well
+That's not working right? There we go.
+I think "cause it's probably for the whole year.
+That's weird though
+So there they have benchmark at the top for different brands and it's being pulled in here.
+Some of them have the center have actr and a viewability number. It all depends on the brand. Most of the brands should have standardized benchmarks.
+We like enforce that this year, saying like we.
+You can't like like balance what you need and these like eKecutive summary tabs, which !'II go
+
+If your benchmarks are all different, like if Cosentyx is like saying the benchmarksorlikeifkisqaliis saying the benchmarks are one thing, but then Entrestothey'redifferent.
+It makes it hard to give them what they need, so they standardize the benchmarks for this year eKceptforCosentyx.
+Cosentyx is, you'll find oul
+Of the CosentyKi, the special child on Novartis So they kind of get whatever they want.
+So yeah. so this is what the display team is QA ING against if every month and letting us know if there's any issues.
+So that's the ticketing that I'm showing you yesterday like we ticket them and JIRA.we say hey, go in QA your dashboard it's writing.
+L€t us know if there's any issues and then if ther€ is issues, they send us a smartsheet ticket about it and then we investigate it
+Andfixitforthem.
+Or let them know if ifs like not an issue.
+And then we close out the ticket and then they can proceed and let the analytic.steam know like, OK, our dashboard is good.
+You're you're good to compile your insights and send it to the client
+Each dashboard is kind of similar.
+They just liave their own kind of look and feel to it
+So
+I still haven't updated this. OK.cool.
+The video is similar, so they're looking for the same
+e,ract thing!..It split Our video is split by different types of video partners versus like.
+A. like endemic versus social for video. It's like is this an online video partner? Is this an over the top partner?
+Is this an addressable TV partner? Isit a demo soc I partner?
+So they have their own method of like .splitting out the delivery.
+So again, tlie video team like I get like I said before, video is a little weird on our on our account We have three different teams activating video.
+We have the direct team activating online video and ctctv.
+We have programmatic activating online video and CTV, and then we have the video investment team activating CTV addressable TV liriear TV.
+All that happy like offlinetraditional stuff.
+So each team is coming in arid checking their partner.
+Like what they've activated on? Backinthecosl  Thisissocrazythatthis is doing this. I gotta talk to Ky1eaboutthis.
+They're checking the impressions.
+They're saying, hey, do these impressions match? DCM, do tliese impressions match?
+Does the cost match Prlsma? Andagairi,.thisisgonna change.
+I'll go over this with you, but depending on the
+
+
+The type of channel. the cost source changes, so if it's direct team activating video iscoming from Prisma.
+If it's programmatic. it's coming from the DSP.
+If it's video investment, it's comirig from a combination depending on if it's traditional TV ver slikeCTV.
+If it's CTV is coming from Prisma
+If it's traditional TV is coming from these like it's coming from media tools. it's coming from these independent TV tables that they're that we're keeping with them.so.
+They're responsib for coming in here and making sure that those costs and those impressions align and everything is listed out the way that it's supposed to be like.
+A perfect e:,cample is last month our team, our programmatic team, let us know tliat they were not seeing
+Miss Pmx spy that they had and we realized that it was being grouped under a different partner.
+So we had to go in and reclassify it to split it out so that this pmx by had its own partner name and wasn't just grouped under Tradesk CTI/ swoop.
+
+So we went in and broke it out so they could see.
+The metrics independently because they asked for it.
+So this is thi!;is what video is.
+Queuing audio looks pretty much the s.ame, similar to video.
+Where they just lilce. have similar lcind of. Like similar setup.
+With just.
+The partner metrics.
+Anually, no, it does not match video at all. So ignore me.
+We don't ha11e much audio, so you don't have to
+worry about that.
+We have very little audio on Novartis right now But they'll let us know if that's wrong e-mail.
+E-mail is finicky.Just asa heads up there.
+Sometimes it's classified a tittle weird. so let me see if I can pull up a different.
+You'll find that e-mail isa little bit of the bait of our existence on this account.
+And like the reason being is just like.
+They care so much about their e-mail metrics becausetheydosomuch.
+Hep e-mail marketing, but like sometimes.
+Our activation team is don't split out the emails like at the package levelorliketheythey rollttiem up at the package level so
+So sometimes the e-mail is being classified as display.
+Versus e-mail. Sometimes.
+They're expecting like HCP metrics for this versus just impres.sions, so.
+It it you'll notice as time goes on that we talk about e-maila lot and it's just because it's such a weird channel that they buy.
+And sometimes it's like they're buying e-mail independently, but sometimes the e-mail is like an add on to the display by or sometimes it's a conference, so you'll notice that we talk about it a lot.
+But tor this part I think the most common questionswegethereis that.
+They don't see the partner listed on their e-mail and I'll go into the classification table and find out that it is being classified as display
+Or if other lilceaseparatepartnername or something like that so.
+Yeah, So this is just the e-mail is pretty basic I think we're gonna be adding.
+Andforsomeofthese.
+We're talking about adding in some of that HCP metrics
+So that's to come. But right now we're Just pulling m1mpress10ns.
+Did you do a lot of e-mail on the accounts that you've previously been on by any chance?
+
+•• AndrewRyan 19:11
+All we did was give QA the tags.
+It's kinda where it began and ended.
+
+
+OK.
+OK. Did you, did you guys have, did your teams tag itwtiereand ttiisisafightthatl'vebeen having at the agency for lilce 5 years.
+Did you guys.tag it?
+Where if you did you tag a custom e-mail and a banner e-mail
+The same exact way where like we're always tracking the clicks. but regardless if it's a banner, e­ mailor custom e-mail, we're sending them an impression tracker to treat like an open.
+To like track open versus the banner
+
+•• Andrew Ryan 19::,0
+I we must have some mind force ·cause. I tried to make that a process 'cause. It's inconsistent acro55 accounts like I always thought that there should be a separate tag just for impressions and the rest just do clicks.
+
+
+OK.
+
+•• Andrew Ryan 20:05
+And sometimes they did do that but other times the publisher would just choose any random old dick tag 'cause they all have their own impression.
+One, they would just pick one to use the Impression for.
+
+R.ichelPiol 20:16
+Oh OK. I see
+
+•• Andrew Ryan 20:18
+II think that's a battle we could.
+
+
+OK
+
+•• AndrewRyan 20:21
+I mean, it feels like it would be worth it for the cleanliness part but 11haven't really seen the impact of it.
+But when I did it Rachel, it just felt wrong, you know?
+So I tried to make it that w;;y and I don't even know why. I was just like, I just feel like they should be. but it didn't take.
+
+
+RilchdPiot 20:29
+I know
+
+•• Andr- Ryan 20:35
+I didn't have enough power and I just ga11e up on
+
+
+R.ichelPiot 20:37 OK
+OK
+S.o good news is that now with Jackie lea11ing table enablement like this is something that I felt really strongly with on Novartis and I broke it down to them like 100 times.
+And we do try to tag that way on No11artis.
+S.o they are supposed to be communicating.
+It doesn't always happen, but we are supposed to be tagging on No11artis where?
+Regardless of the e-mail type, if it's an e-mail. By.
+They should be sending the partner an impression tag solely to track the opening of the open of the e-mail and th0=n click tags lo track every dick out lo the Nov:utis brand site.
+
+Andr- Ryan 2\:21
+How are you guys like enforcing that?
+
+R.ichelPiot 21:2)
+It doesn't. Yeah
+S.O we W€ basically have told them to do it that way because lik0=we have a lot of foundational partners and they we were like. hey. we have to do it this way to standardize the way in which we get e-maildata back.
+Like that was the problem because we were getting all this e-maildata back and it was useless
+because one partner like was tagging like putting 5 different impression tags in the e-mail and then another time they put one impression tag in thee­ mail and another time they put.
+
+•• And Ryan 21:56
+Mm hmm.
+
+
+Rach l Pio! 21:57
+It as an open and like we couldn't do anything with the data because it was tracking all different versions of this impression.
+
+•• Andr'""' Ryan 2l:59
+Yep.
+
+
+S.o our whole thing was that. Are at the end of the day.
+For emails for us the the HCP level data that we're getting back is the end all be all.
+So like even though we're getting impressions, it doesn't.
+It's it's like a nice to have at this point, but the HCP level data is what matters and that's the offiine data that we·re getting from them
+The reason why l"ve tried to enforce them to tag it with the the open is because I've told the team that I don't trust the partners and I think that they're inflating the HCP numbers that they send back and these buys are expensive, right?
+
+•• And,-....,Ryan 21:49 OK.
+
+R chd Pio! 22:52
+Like so. we want to make slJfe that they·re not in. They're not inflating those number
+S.o the the impression open impression tag i
+lmportantbecauseitallomustotrack.
+If the numbers are coming backor like wonky. and if we have to question them right. like in my opinion, our impr0=ssic>n tags should always have more impressions than the HTP leveldata that they're sending back because we·re trnclcing every person·sviewofthis, this is like.
+People who are building the e-mail, people who are testing the e-mail, people who are getting the e-mailjust for like an FYI.
+But so there are HCP number:1s-hould always be lower.
+Because our impression tag is grabbing everything and can't weed out non HTP impressions
+S.o if they're sending back HTP numbers. the nurse saying, well. we reached 2000 unique Hep but our Impression tag only has 800 impressions. How is that possible?
+
+•• Andr- Ryan 23:5-0
+Yeah.
+
+
+You !::now, so that's.
+
+•• Andr= Ryan 23:53
+And you think that's a problem with the impression tags on the emails or is this a bigger? It's a bigger conversation?
+
+Rachel Pio! 23: 7
+I don't
+I don't think.
+I think it's a bit ·cause. It's like it's just it's just an image tag, right?
+Likeit?
+It really if they're using, I don't think anyone is building emails from scratch these days, but some of them have e-mail ad :s.ervers. right?
+
+
+•• Andr- Ryan 24:04
+Yeah
+
+
+RaehelPiot 24:12
+So that's great. That's great. But some of tt1em don't.
+So they should be able to just put an image tag at the top of the e-mail and call it a day ver<;1..1s trying to track an individual banner.yeah.
+
+•• Andr- Ryan 24:22
+Was
+I'm always nervous about giving suggestions this early 'cause everybody's so smart and probably thought of this, but I did. I, as you're lil::e, explaining it, I don't kr.ow, like
+A true like solution to implement that forces this to work good, but the issue with the impression tags is kind of. I makes me wonder if maybe there's maybe tliis is an oversimplification, but tliat QA tool that everybody tias to do before the data QA that Michael Cle.
+Owns. That automates it.
+What if there was something on there that detected if the FM field said [MA for e-mail or new for E newsletter. that it's required to find a line item that says IMP for IMP. So we know that there is a separate line item
+Oh wait. but that's at the placement level. No.we break it up bycreatives.
+
+RaehelPiot 25:12
+Oh no, I know
+
+
+•• And,--Ryan 2'i:13
+You're 1 by ones.
+Oh. I thought I was onto something. All right.
+
+
+
+No, it's evidence.
+That's the kind that's like, perfe-:t
+That's the kind of stuff that we have to figure out because like right r,ow, like or, ours, it took me througti it
+It took me literally. I think 2 years with the combined team to be like you absolutely need to build it this way and This is why.
+And ttieyfinally got the hang of it this year. Like, thisisthefirstyearthat I've seen it.
+Like where it's been corisistenl And like media. fochwasQA
+Not like I had.
+We had thorough Q as of like if you're getting an e-mail placement. you need to make sure that there is one impression tag and nothing
+No other impression, tags and everything else is a click tag and has CTA in it and like it was like an uphill battle. But we got we got it going. But now that W€ got it going, we're still having issues with the partner not treating it as such.
+
+•• Andr..w Ryan 26:00
+Yeah
+
+
+
+So where wtiere the internal battle is over but the enernal struggle is still going.
+I I'm hoping tliat we can get them alive, but again at the end of the day, like we're Just trying to get that HCP data back.
+So like I keep telling people like treat the impression tag the impression information for emails with a grain of salt, but use it as a benctimarl::to see if their number5are like totally blown out of proportion
+One of the issues that we have and I talked to Julia about this is that before we merged our team was QA ING every single e-mail that went out. And f'm I'm sure that that washappening on your accounts. right? Like you wer€ any requ€st to QA e-mail.
+
+•• And,--Ryan 26:56
+Yeah
+
+
+RnchdPiot  26:57
+OK. We were doing that. And the-n once we merge that like went away because like Starcom never did
+
+And I was like, well, I'm really nervous about what the hell was even going on there bec.ause it was
+
+It was not good, but when we merge that came off of our plate and our acti\lation teams were supposed to be doing that now and I'm like.
+God only knows what's going on. so every time there's an issue and they're like an analytics is like, why is this number different?
+I'm like send me the emails that went out and I'll QA them myself and I'll let you know where things went wrong but
+It's still an uphill battle, but I do think it we're we're getting there.
+But they they definitely ha11e to be using that as a benctimark to see if, like the client the the like. If a Medscape is &aying like we reached like this amount of like unique litps and then like our impression tag is like totally.
+Wenote11enclose like that is alarming.
+I need to be looked into so that right now we'r€ kind of using it as like a a red Hag vef"ius anything else
+
+..,  Andr Ryan 28:10
+OK
+
+
+Yeat,, but good. Yeah. Yeah, definitely.
+
+
+•• Andrew Ryan 28:12
+Not to think about that.
+
+
+R.achelPiot 28.:15
+Think about it. Because like, yeah, we're that is something we're trying to solve for. And then just like, I feel like Jackie and larealwa'fStrying to wrangle acti\latlon and they ha11e to be.
+They have to be.
+They have to follow instructions on this account because there is at this point in this lifespan of Novartis, there is no wiggle room like.
+They there's so much instructions and so much like.
+Like you need to do XY and Z otherwise like this terrible thing can occur with like like the data and then the client is going to lose their mind.
+So like we're at the point with them where they, I
+feel like they should know better.
+So you'll kinda see sometimes that we're like, no. you have to do thisand This is why so like.
+Well. we could
+I think like that mindset of trying to figure out wa'f5tolike.
+Like. hey, what kind of automation can we add here?
+So it's like another gut check or it's like a set it and leave. It would be like awesome
+
+Andrew Ryan 29:22
+Mm hmm.
+
+
+Ra-c:helPiot 29-.22
+Yeah OK.cool
+EHR. we don't get a lot of questions about this to be honest.
+A lot of EHR can't be tagged.
+I'm sure you dealt witt, o:nt They are like the worst partner in the world.
+But we don't get we do like we tag it Sometimes, sometimes we don't There's like.
+Problems with measuring our mt. Sometime5 the tags won't fire. To be honest, we don't get a lot of questions about it,.but the team is just supposed togoin.
+Let us know if they see the information and rt we don't we look into it.
+OK.social.
+So theirs is. I find that social and search is probably gonna take the most to kind of get familiar with.
+With theirs is their dashboards are still by report
+
+
+But then their stuff is broken out by like each partner, andthentheyhavelikea objective like a a full a social obJectIve. A lot of ttie times we get we do get a lot of, we get a lot of tickets for social. we get a lot.
+Of tickets for search because there is a lot of manual.
+Ingestion that's occurring for their platforms. And then there's also.
+So a Jot of like overrides that m!'re doing to like, categorize stuff.
+So mostly, what search will either get? The.
+For the campaign. a campaign is missing, which. if that's the case, is typically like it needs to be backfilled.
+So that's when we reach out to pub media or they're like RE12. Fire is like reflecting something like not righL And they'll be like, can you update it too?
+And they tell us what they need updated as they'll be like.
+Can you update it to be Iii:€ education. traffic, dash, thisor whatever and we'll just like manually update i1.
+That's typically the what we get from them. All of their cost comes from the social platforms themselves and all of the impressions come from the social platforms as well
+If there, if there'scost that's off. What if they're like, hey, the cost isn't matching what I typically do is or what Kyle and ldo is
+We'llthey'llsendscreenshots,butldrewcanllike  tell you how many times I had to have like what a good screenshot and a bad screenshot is on this
+
+It's it's crazy.
+Like sometimes they'll send me like this this box. And I'm like, what do you want me to do with that?
+So sometimes and sometimes they don't even send screenshots from the UI.
+So like instead of wasting time sometimes I'll just go in and pull it myself.
+Or if I'm having a bad day. I'll JUst tell them like you need to send me a screenshot of the UI, but.
+I'll typically go in look at the UI to see what we're seeing in the UI, and then I'll bad:trad(.
+So like from the dashboard like think of this dashboard as the final touchpoint that this and two dashboard is the final.
+Whole place where the data lands for e11erything foralloflhechannels.
+So if something's wrong here, we need to backtrack.
+We need to find out. Where? Where it's wrong? lfitisitwrong from the?
+Is it wrong from pickup like our first touch point or is it stuck somewhere along the way?
+
+
+So what I'll typically do isl will.
+Look up if the cost is off or the impressions are off.
+But we have some form of impressions or cost. I'll go to the UI.
+1'11lookatthetimeframe
+I'll get the I'll get the report of the full cost or the full impressions out of the OR like anything else, like reach or whatever out of the system emd I'll download it and then I'll go to
+I typically will go back to .1
+So our ,1 for social would be pub media.
+So I look at our redshift data 1st and I query and I look.
+Again, we'll go ttirough this in mu,:;h in depth at a later point. butwe'llquerylhedatain redshift.
+I'll see if that data matches. If that data doesn't match in redshift, that means there's something wrong with the data intake from the APL or like batch file loads or whatever pub media isdoing.
+So that is the case that 1"11 open the ticket and 1"11 send them Aui report and I'll be like.
+Breadshift doesn't match our UI.
+
+
+Pleasefixthatlikel'llgive them like the dale range.
+
+
+.,,  Andr-Ryan 34,10
+Mm hmm.
+
+
+Rll{:h l Piot 34:ll
+I'll give them like the ,:;ampaign name, the ac<:aunt ID.stuff like that
+And then, but if it does match in redshifl that means there's something going on on our side that is like it's stuck somewhere or something's not going right
+So from there I'll typically query snowflake because it it for social all of our social stuff, for the most part goes from pub Media API to they go into redshift.
+We ingest redshift into snowflake.
+WeingestthesnowflakedataintotheNovartis  data Rama and then it does this like weird process where loop the loops bad:: into Snowflake goes back into Novartis MCI and then comes into here.
+This is the final touchpoint 50 I'll typically if it's not wrong in redshift and redshift in UI are matching then I then I'll go to Snowflake.
+If snowflake's matching, then I'll go to Novartis.
+MCI.
+And and 50 so on and so forth until I find the point in which it doesn't
+It does not makh
+And then there's different ways that we update it. So that's like something that we"ll kind of talk about as we go because like that's like that's kind
+of like the weird nuance, the unique situatK>n
+where maybe not every.
+Situation of resolution is identk:al and will rely on like each channel or each like or each like.
+Occasion that it's off, but yeah. 50 each one kind of follows its its own structure, but that's how I we typically get questions about that and that's typically how I have to we have to resowe social.
+
+'"• Ar.drewRyan 3'i,56,
+OK.
+
+
+RaclielPiot 35:57
+Yeah.
+If REACH is off with social so I don't know what's happening with reach metric. There we go. If REACH is off
+lwilltypical!yched:
+To see if.
+I will check the UI and then I'll have to ,:;heck reach W€ get. We do pull ourselves. We do monthly uploads the bo)( and then we pull that number into Snowflake.
+And into the Rama versus going through the the pub Media API 'cause, we can't get that kind of data there.
+ltreachesofftypio::allyhavetochecktheUI and then have to check the reports ttiat we upload.
+Sometimes we have to like repull, maybe like REACH changed abruptly like on the 5th of the month after W€ already pulled the report.
+So we might have to Just like re upload it Or sometimes maybe the reaches like being
+classified und0=r a different indication. Ttien for
+some reason then where everything else is and we justtiaveto like reclassify.
+Cool. I'm gonna skip lqvia print out ·cause. I won"t talk.
+I'm still get kind of getting wtiere's lqv data.
+This is something Michael had handled previously, so once I'm on we can cut out or as soon as Michael starts onboarding us to that I'll I'll involve you in that.
+Search do I want to get in the search right now? Search is honestly the bane of my existence.
+Yeah, I guess so.
+We, like I said, we get the most tickets 1.
+
+)I Andrew Ryan 37:3
+I don't know if the at the meeting time is making you make these calls, but I can go over if you can if you want
+
+RnchclPiot 37:45
+OK.cool.
+Yeah, I migtit.
+I might do that.
+
+
+.,, Andr- Ryan 37,47
+OK
+
+
+Ra{:h I Pio! 37:49
+Cool search and search will give us the most tickets.
+Search Is so nuanced and I don't know why. But Sir, we get the most tickets from search. We have the most data hiccups with search
+We have the most weird classification stuffwith search and I ttiinlcit's just because of the way we get the data.
+So search is the weird searches.
+So sort of the weird ones where we get.
+Data from both an API but also from the UI like from like a report.
+Either we pull ourselves or that we like automatically generate. So for search.
+Cwrentlywe get national level impressions. And like.
+Impressions, click and cost through p1Jb media, b1Jt
+we get OMA level data. Depression costs and clicks we gel Branded impression share.
+From an automated reporting, we get OMA.
+From an automated reporting, we get conversions from an automated reporting.
+Yeah. What else we we get from ttiem, but we're pulling a lot of stuff man1Jally from that UI becmJse we just can't get those cuts of data from pub media.
+So depending on !tie issue is gonna depend on wtiettier you look at the pub media redshift stuff first or if you look at the reports that we're getting fromtheUlfirst. So like
+It it it's like two different traJectories.,like two different paths depending on the issue.
+A lot of the times the issues are stemming from.
+Either we have right now we're dealing witti an issue with pub media that you'll hear me bring up later today, where they're supposed to be auto mapping all new advertisers via like Pamela supposed to be alJto mapping. So we get the data automatically for some reason when the.
+The new search UI rolled out last year.
+We were fine and then starting around December.
+ltjust stopped automapping and we've had to like request them to get data for each new search advertiser which is like not great because like the search I think like we typically launch search 1st and when it's like an All Eyes campaign ttie brand leads on the no
+Immediately start looking for their search metrics and then like they don't have them because we don't have them 50.
+We're working through that issue right now.
+So typically it's like we are running into like an issue with like the pub Media API for the national level data.
+Or we're running an into an issue with like the impression share being.
+Cla55ified incorrectly. I am not gonna go over that process today because that i convoluted.
+Probably will go over that at 50me point. 50 if the like impression share is off. which would be?
+Where is it? Thank you. Might be.
+I gotta.
+I gotta figure out where, but what is? What's the impression share listed as here? Oh.here it is Whereitisgonnadrivemecra'Z'j?
+
+•• Andrrw Ryan 42:13
+Hmm.
+
+
+
+OK.
+So
+01<. So if their impression if this Brandon Impression share is off, this is where we have to like start looking at ttie reporting that we"re getting from the UI.
+Basically like what is happening here is that a lot of ttie times it"s not classified correctly because ifwe mal::e a classification update to search data, it's gotta do this like really weird process.
+To then be reclassified. sometimes the search like impression share is.
+For being classified as the incorrect thing way after we've made the classification update, so it takes a little longerforthistoprocess.
+So a Jot of the times if this is off, we have to rectassify it and then we have to be like, Please wait six day, for it to be reclassified
+I'll go through that process later, but like it, that"s typically the issue here.
+And then rm. I'm gonna have Kyle remove this
+
+
+This is something we used to get Until like the new SA 360 rolled out.
+And we don't get this metric anymore from.
+It's something that. like search ads, took away, so you'll never have to worry about this again. But.
+Yeah. And then they do have. this is for th r SA
+360. They were using perform media to measure their lil::e DTC buys, but they stopped doing that.
+So they·rethisisn't activeforthisyearandthey also aren't running any YouTube at the moment.
+But they have these dashboards already created in casetheydothatagain.
+
+•• And,-- Ryan 44,02
+OK.
+
+Yeah, OK. I'm gonna skip Poe imprint for now on TV because those are two ttiat 11feel like.
+We'll we'll go over at a later date because I feel like ttiese are the two, like stepchildren of of the process, but.
+
+•• And,-- Ryan 4420
+I can Imagine they're they're the two that aren't digital,right?
+
+
+
+Yeah, yeah
+S.o it'.s it'sa little, it'.s a little wonky and our QA process with them are pretty new.
+S.o like, we're still working out like.
+
+
+•• Andrew Ryan 44:31
+I've always been very, very curious about how like
+
+
+
+R.ach Piol .W:H
+S.tuff.
+
+
+•• Andrrw Ryan 44:35
+We do measure things like ttiat and how the reliability, but I know that's a totally separate conversation.
+I'm sure there'sa deck somewhere in bo)( that goes over it in detail
+
+
+
+Oh yeah.
+Oh yeah, I like.
+I love when people are like, well. these numbers are self reported by the partner and I'm like and we're Just kind of like being like, here you go.
+Here's these self reported numbers that nooody
+cancheck.
+Hope you like them. Yeah, it's, it's weird.
+Butyeah,andthentheseare new.
+We're still working through these basical
+Our analytics team used to have, like a summary of allofllkethis.
+In an Excel format.
+And once we put everything into the dashboards are at once everything became just dashboard related. We were able to share these types of dashboard views with like the client they they were like hey. we·re still like manually compiling these like e)(e<:utille summaries of the performance for all of.
+The channels can we get that into a dashboard?
+S.o we've been working with them to kind of set this up.
+Up to how they need it and again this will be a splitupidtcand HTP.
+Because again, they have their own like measurements and their own benchmarks.
+But it'll house everything besides Cintix. and then we"II make our own separate elCecutive summary dashboard for Cosentyx. Once we can align with what works here.
+But yeati, that's ttie monthly dashboards. This is all the stuff that like the activation teams are looking atat during the month.
+And this is kind of all the stuff you'll be referencing.
+When you start getting like ticketing like we'll loop you into the ticketing process, we'll go through that and how they do it. And again, like I kind of went over some of their most frequently asked questions, but it's oneofthosethingsttiat I feel like you got.
+To kind of be like hands on.
+To start doing feel like kind of get like oh, this is what's happening or oh, like you know how it is. Like, you kind of have to be in the leads with it.
+
+•• AndrrwRyan 46:38
+Yeah
+
+
+Rach l Piot 46:41
+These dashboards are real helpful. So we set these upforustoseelike.
+Because these are so generalized and at partner
+level, this is how we check to see like, oh, is this being classified incorrectly?
+S.o what they're supposed to do if they don't see something they·re supposed to give us? Like what?
+The like campaign name is or what like the like? Yeah, they're supposed to give us like, what? The campaign name is or what the advertiser name is.
+This is how we can go in and check like.
+Oh, ttiey don't see it in the this report dashboard becauseit'sacc:ent.
+Being put under like this where they're not seeing it as e-mail because it's being put under display.
+S.o this is like when they tell us that there's an Issue. I typically will come in and be like, OK. they saidthere'sanissuewith.
+DTC they told me ttiat the campaign is this like. Deep this direct campaign is the issue.
+And then I'll come in and be like. Oh OK I like.
+I can come in and bring the campaign name in,
+which is great so you can bring the actual name of the campaign. You can bring the placement level names in and I could see and be like without even like I'd be like, oh. I don"t.
+If you're either, if I remove this report name but only look:at the campaign name, I could see like, oh, maybe this came in under NBC Y€Sterday, etc.
+And that's why we don't see it in here or like, oh,
+
+
+apex health. It was suppo d to beaudio, but it's coming in as like. display or something, you know.
+So this wlll kind of help you determine like is it a classification issue like are we accidentally classifying it the wrong way or is coming through
+
+Incorrectly.
+Or do we Just not have the data at all? So this isa great starting point to see like
+Is this a data issue or is it a classification i5sue?
+
+
+•• Andrew Ryan 48:4]
+Mm hmm.
+
+
+:_  R.ichelPiot 48:46
+I afwar.; look at impressions and clicks
+In here we have a dummy metric that brings in anything where like if there's a one in any of these other fields, it'll bring it in.
+S.o we can see like if s.omething's occurring. S.o like we have some form of data for it but I'll typically remove that if J'm looking to see if it's like a classification or issue.
+Bui this is a good place to start without having to pull like a pivot
+Or having to go into lil:e.
+The Novartis MCI right away or data Rama right away.
+And yeah. we have one for each of digital search and social.
+S.othisisreally helpful.
+This helps like I can't tell you how many times I've just come in here and been like, oh, well, this is the
+
+So yeah.
+But yeah, and then these are like I said are working progres>.
+S.o I thinI: this is a good overview of good start.
+Do you have any questions about any of that that I
+went through?
+
+
+•• Andrew Ryan 49:50
+I don't know.
+
+R.iche!Piot 49:52 lknowit'salot It's a lot, but.
+
+And Ryan 49:57
+How long did it take for you to get comfortable with all this when you staned doing it?
+
+
+
+I'd s.ay I started getting more comfortable when I started actually looking through like the ticketing questions. I felt like I had to be hands on to really understand. like to really grasp lilce what was going
+
+
+
+•• Andrew Ryan 50:08
+Mm hmm.
+
+
+R.iche!Piot '.i0:17
+I think like.
+For the most part, like. Like what you can do too. And I find this helpful
+Is that like again? If you need to like, I don't \::now
+I think like once you have access to the datorama just start like polcing around and like checking out different thingsand like just like list out some questions
+
+•• Andrew Ryan 50:36
+Yeati.
+Yeati, that's that's really what I'm way where I always feel like any questions I have are like, well, let me 11figure stuff out on my own.
+That's howl learned
+
+
+
+Yeati.
+
+
+•• And Ryan 50:52
+lmezmeverything.
+I've showed you all the macros and stuff
+It'sjust me poking around a lot and you know. once I get my hands on, it'll be lil::e. you \::now. it"II just come to me
+
+
+
+Yeah
+
+
+•• And Ryan 5Hl3
+I'll be able to remember it.
+I'm lilce, but if I just like loolcat it and read about it it's it"s like like that SOL course I took months ago. If you don't use 1t you lose it like I felt good when I was doing it but now
+
+
+
+Yeah
+
+
+•• Andrew Ryan 51:H
+Waiting to do it again and it'll come back. And I think this will this will be fine too.
+
+Rache1Pio1 51:14
+Yeati,exactly. Yeati,exactly.
+Yeati. And like, I also will go over the, this is part of what I want.
+Like we'll go over this whole like QA process that
+WP <in h.,..-;,,,,:p thi i wh;,t will nPt """ lcinrl of
+
+invollted in first.
+But I wanted to show you really quick like this is wtiat I was talking about wtiere I have listed out all of the spend and activity sources for every cham1el so th;it you know like if it's digit;il, if the report
+channel isdigibl.
+If ttie Prisma for the spend source for direct buys is Prisma for for DSP platform data for programmatic coming from, yeah, it's coming from the DSP
+Activity.
+That we're getting is not for for digital is national and DMA level impressions and dicks.
+Ttie PLD HCP data video completion rates and viewability and those activity, the activity sources differ for each like activity.
+So like this gives you like a whole breakdown of like the channel where the spend iscoming from!
+
+7ll Andrew Ryan 52:18
+Mm
+
+Rach I Piot 52:25
+The activity that where ttie activity that we're.
+Looking at for each of these channels where that activity is coming from, like the source of truth for that activity, and then these are all the snowflake table,thatHousethatdata.
+And then typically these are the tables that we·re pulling into MCI like through lilce different like data Rama, like the Novartis side data, Rama through different queries.
+But I find I I like made this because I could not keep track of like wliere things were coming from.
+But this like well, I think will definitely help when you start like looking into the questions about being like, OK. I have a question for paid search.
+What is the question about?
+Is it about impressions or is it about sov like OIC? What is?
+Where is that coming from like so?
+Hopefully this will help you in ttie long run too.
+
+•• Andrew Ryan 5 :21
+OK
+
+
+RoKhdPiol 53:21
+Yeah
+But yeati, we'll go through this a little bit more again.
+I don't want to overwhelm you, 'cause. I know. It's like a lot but we'll set up some time to go through. Like, the what? I think where we should go next is probably the ticketing system.
+We'll go through the monthly reporting. I'll s0=t up some time. maybe Friday for us to go through wtiat our monthly reporting lools like and I'll show you the smartsheet and then I'll give you aa:ess to ttiesmartsheet.
+And ttien we can start.
+You could start looking at the questions that are rnming through for may, like we're about to enter may reporting, you start looking at the questions and then maybe try to like start figuring out like, OK
+Wtiere would I look at this first?
+You know. like you can see like what's rnming ttirougti and then you can ask me and Kyle, like, liey. like,wernuld talk about it.
+Like, how did you resolve ttiis or like?
+How do you approach like resolving this? So like it'll?
+Give you that kind of like0110=r.>ight, while like you could try to maybe like I can look al a few of them and say like. hey. Andrew. try to figure out where this issue is occurring. you know.
+
+•• Andrew Ryan 54:35
+OK.
+
+
+
+Cool, but yeah, I'll reach out to Craig today and see ifwecang0=t.
+Where he's at with your access.
+Likeittakeshimlikeaweektogetaccess sometimes.
+And I'm like, wliy?
+But I'll reach out tohimandseeifyouraccessis us. You can actually start getting in here and like poking around.
+
+._ Andrew Ryan 54,58
+Is that separate from ;ust getting the Novartis e­ mail?
+'Cause I saw that moving through tlie the service desk pretty recently.
+
+RaclielPiot 55:0J
+Yeah, this I basically asked them to just give you access with your like with your PHM <=-mail and then we'll Just ,witch it to her.
+
+•• AndrcwRyan 5):11
+Oh, rigtit. riglit. OK. I remember them.
+
+
+RacllelPiot 55:12
+Yeah, yeah, Cool.
+
+
+._ Andrew Ryan 5):15
+OK
+
+
+
+All right.
+Well, thanks Andrew.
+
+l'el R;,A,PlPlnt,tnn,-lt, nccrie>tinn
+
+
