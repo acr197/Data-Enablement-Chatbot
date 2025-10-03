@@ -32,14 +32,32 @@ SESSIONS_ROOT = Path("/tmp/sessions")     # ↑ Ephemeral; wiped on restart. Kee
 def _read_text(path: Path) -> str:
     return path.read_text(encoding="utf-8", errors="ignore")
 
-def _read_pdf_pages(path: Path) -> List[Tuple[str, Dict]]:
-    """Return [(page_text, {'page': int}), ...] so we can cite page numbers."""
+def _read_pdf_pages(path: Path):
     import fitz  # PyMuPDF
-    out: List[Tuple[str, Dict]] = []
+    out = []
     with fitz.open(str(path)) as doc:
+        if getattr(doc, "needs_pass", False):
+            raise ValueError(f"PDF is password-protected: {path.name}")
         for i, p in enumerate(doc, start=1):
-            out.append((p.get_text("text"), {"page": i}))
+            txt = p.get_text("text") or ""
+            if not txt.strip():  # try a second extractor
+                try:
+                    blocks = p.get_text("blocks") or []
+                    txt = "\n".join(b[4] for b in blocks if isinstance(b, (list, tuple)) and len(b) > 4) or ""
+                except Exception:
+                    pass
+            if txt.strip():  # skip fully scanned pages with no text layer
+                out.append((txt, {"page": i}))
     return out
+
+def embed_batch(texts, batch_size=64):
+    vecs = []
+    for i in range(0, len(texts), batch_size):
+        part = texts[i:i + batch_size]
+        r = client.embeddings.create(model=EMBED_MODEL, input=part)
+        vecs.append(np.asarray([d.embedding for d in r.data], dtype=np.float32))
+    return np.vstack(vecs)
+
 
 def load_file_with_meta(path: Path) -> List[Tuple[str, Dict]]:
     ext = path.suffix.lower()
@@ -105,12 +123,17 @@ def ingest_files(files, session_id: str):
         if not files:
             return "Upload one or more files (PDF/TXT/MD)."
         all_chunks, all_meta = [], []
+        skipped_pages = 0
+
         for f in files:
             p = Path(getattr(f, "name", str(f)))
             name = p.name
-            # read pages (or single blob for txt/md)
-            for text, extra in load_file_with_meta(p):
-                for c in chunk_text(text):
+            blobs = load_file_with_meta(p)  # list[(text, {'page':...})]
+            for text, extra in blobs:
+                chunks = chunk_text(text)
+                if not text.strip():
+                    skipped_pages += 1
+                for c in chunks:
                     all_chunks.append(c)
                     all_meta.append({
                         "doc": name,
@@ -118,22 +141,28 @@ def ingest_files(files, session_id: str):
                         "chunk_id": str(uuid.uuid4()),
                         "text_preview": c[:400].replace("\n", " ")
                     })
-        if not all_chunks:
-            return "No readable text found."
-        emb_list = [embed(c) for c in all_chunks]
-        save_index(session_id, np.vstack(emb_list).astype(np.float32), all_meta)
 
-        # best-effort wipe uploaded temp files (keeps Space clean)
+        if not all_chunks:
+            msg = "No readable text found (likely scanned/unencrypted PDFs)."
+            if skipped_pages:
+                msg += f" Skipped pages without text: {skipped_pages}."
+            return msg
+
+        emb_matrix = embed_batch(all_chunks, batch_size=64)
+        save_index(session_id, emb_matrix, all_meta)
+
+        # best-effort cleanup of temp uploads
         for f in files:
             try:
                 Path(getattr(f, "name", str(f))).unlink(missing_ok=True)
             except Exception:
                 pass
 
-        return f"Ingested {len(all_chunks)} chunks from {len(files)} file(s)."
+        return f"Ingested {len(all_chunks)} chunks from {len(files)} file(s)." + \
+               (f" Skipped {skipped_pages} blank/scanned page(s)." if skipped_pages else "")
     except Exception as e:
-        # Surface the actual error (pymupdf missing, bad PDF, etc.)
         return f"Ingest error: {type(e).__name__}: {e}"
+
 
 def clear_session(session_id: str):
     d = sess_dir(session_id)
