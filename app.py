@@ -135,24 +135,33 @@ G_STATUS: str = ""               # human-readable status text
 
 def build_index_from_local() -> Tuple[str, np.ndarray, List[Dict]]:
     """Scan DOCS_DIR for .pdf/.txt/.md, chunk, embed, return (status, emb, meta)."""
+    folder = str(DOCS_DIR)
     if not DOCS_DIR.exists():
-        raise FileNotFoundError(f"Docs folder not found: {DOCS_DIR}")
+        raise FileNotFoundError(f"Docs folder not found: {folder}")
 
     files = []
     for ext in ("*.pdf", "*.txt", "*.md"):
         files.extend(sorted(DOCS_DIR.glob(ext)))
 
+    # Build a human-readable list of what we actually see
+    file_list_text = ", ".join(p.name for p in files) if files else "(none)"
+
     if not files:
-        return f"No documents found in {DOCS_DIR}", None, []
+        return (f"No documents found in {folder}. "
+                f"Looked for *.pdf, *.txt, *.md. Files seen: {file_list_text}"),
+                None, []
 
     all_chunks, all_meta = [], []
     skipped_pages = 0
+
     for path in files:
         try:
             blobs = load_file_with_meta(path)  # list[(text, {'page':...})]
         except Exception as e:
-            # skip unreadable file and continue
-            continue
+            # include the error in the status so it’s obvious
+            return (f"Error reading {path.name}: {type(e).__name__}: {e} "
+                    f"(folder: {folder}; files: {file_list_text})"), None, []
+
         for text, extra in blobs:
             if not text.strip():
                 skipped_pages += 1
@@ -166,15 +175,18 @@ def build_index_from_local() -> Tuple[str, np.ndarray, List[Dict]]:
                 })
 
     if not all_chunks:
-        msg = f"Found {len(files)} file(s) but no readable text (scanned PDFs?)."
+        msg = (f"Found {len(files)} file(s) in {folder} but no readable text "
+               f"(likely scanned PDFs). Files: {file_list_text}")
         if skipped_pages:
-            msg += f" Skipped {skipped_pages} blank/scanned page(s)."
+            msg += f" | Skipped {skipped_pages} blank/scanned page(s)."
         return msg, None, []
 
     emb = embed_batch(all_chunks, batch_size=64)
-    status = f"Indexed {len(all_chunks):,} chunks from {len(files):,} file(s) in {DOCS_DIR.name}."
+
+    status = (f"Indexed {len(all_chunks):,} chunks from {len(files):,} file(s) "
+              f"in {folder}. Files: {file_list_text}")
     if skipped_pages:
-        status += f" Skipped {skipped_pages} blank/scanned page(s)."
+        status += f" | Skipped {skipped_pages} blank/scanned page(s)."
     return status, emb, all_meta
 
 def retrieve(query: str, top_k=6) -> List[Dict]:
