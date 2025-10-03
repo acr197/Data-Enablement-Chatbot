@@ -1,72 +1,62 @@
-# app.py — Ephemeral, per-session RAG chatbot (no docs in repo)
-# Requires: gradio>=4.44.1, openai>=1.40.0, python-dotenv, pymupdf, numpy, tiktoken (optional)
+# app.py — Preloaded RAG chatbot (indexes local ./docs on startup)
+# Requires: gradio>=4.44.1, openai>=1.40.0, python-dotenv, pymupdf, numpy
 
-import os, json, uuid, shutil
+import os, json, uuid, time
 from pathlib import Path
 from typing import List, Tuple, Dict
-from dotenv import load_dotenv
 
 import numpy as np
 import gradio as gr
+from dotenv import load_dotenv
 from openai import OpenAI
 
-# ---- Secrets / client ----
-load_dotenv()
-OPENAI_KEY = os.getenv("OPENAI_API_KEY")
-if not OPENAI_KEY:
-    raise RuntimeError("Missing OPENAI_API_KEY (HF → Settings → Secrets).")
-client = OpenAI(api_key=OPENAI_KEY)
-
-# ---- Behavior knobs (safe defaults; see comments to change later) ----
+# ---------------- Config "knobs" (safe defaults) ----------------
 SYSTEM = (
     "You are a company onboarding chatbot. Answer ONLY using the Context below. "
-    "If the answer is not in the context, reply exactly: 'Not in the docs.' "
-    "Be concise."
+    "If the answer is not in the context, reply exactly: 'Not in the docs.' Be concise."
 )
-EMBED_MODEL = "text-embedding-3-large"   # ↑ Better recall. Swap to 3-small to save $.
-GEN_MODEL   = "gpt-4o"                    # ↑ Best for doc QA. Can fall back to gpt-4o-mini.
-CHUNK_SIZE, CHUNK_OVERLAP = 1200, 200     # ↑ Larger chunks capture full thoughts; overlap keeps continuity.
-SESSIONS_ROOT = Path("/tmp/sessions")     # ↑ Ephemeral; wiped on restart. Keeps docs private per user.
+EMBED_MODEL = "text-embedding-3-large"   # Better recall; use "text-embedding-3-small" to save cost
+GEN_MODEL   = "gpt-4o"                    # Strongest for doc QA; "gpt-4o-mini" is cheaper
+CHUNK_SIZE, CHUNK_OVERLAP = 1200, 200     # Larger chunk + overlap gives fewer misses
+DOCS_DIR = Path(os.getenv("DOCS_DIR", "docs"))  # Where we read files from
 
-# ---------- File reading (returns text WITH page metadata) ----------
+# ---------------- Init OpenAI client ----------------
+load_dotenv()
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+if not OPENAI_API_KEY:
+    raise RuntimeError("Missing OPENAI_API_KEY (set in env or HF Space Secrets).")
+client = OpenAI(api_key=OPENAI_API_KEY)
+
+# ---------------- File readers ----------------
 def _read_text(path: Path) -> str:
     return path.read_text(encoding="utf-8", errors="ignore")
 
-def _read_pdf_pages(path: Path):
+def _read_pdf_pages(path: Path) -> List[Tuple[str, Dict]]:
+    """Return list of (page_text, {'page': int}) so we can cite pages."""
     import fitz  # PyMuPDF
-    out = []
+    out: List[Tuple[str, Dict]] = []
     with fitz.open(str(path)) as doc:
         if getattr(doc, "needs_pass", False):
             raise ValueError(f"PDF is password-protected: {path.name}")
         for i, p in enumerate(doc, start=1):
             txt = p.get_text("text") or ""
-            if not txt.strip():  # try a second extractor
-                try:
+            if not txt.strip():
+                try:  # second extractor attempt
                     blocks = p.get_text("blocks") or []
                     txt = "\n".join(b[4] for b in blocks if isinstance(b, (list, tuple)) and len(b) > 4) or ""
                 except Exception:
                     pass
-            if txt.strip():  # skip fully scanned pages with no text layer
+            if txt.strip():  # skip scanned pages with no text layer
                 out.append((txt, {"page": i}))
     return out
-
-def embed_batch(texts, batch_size=64):
-    vecs = []
-    for i in range(0, len(texts), batch_size):
-        part = texts[i:i + batch_size]
-        r = client.embeddings.create(model=EMBED_MODEL, input=part)
-        vecs.append(np.asarray([d.embedding for d in r.data], dtype=np.float32))
-    return np.vstack(vecs)
-
 
 def load_file_with_meta(path: Path) -> List[Tuple[str, Dict]]:
     ext = path.suffix.lower()
     if ext == ".pdf":
         return _read_pdf_pages(path)
-    # treat txt/md/anything-else as whole-text (no page)
-    return [(_read_text(path), {"page": None})]
+    return [(_read_text(path), {"page": None})]  # txt/md/etc
 
-# ---------- Chunking ----------
+# ---------------- Chunking ----------------
 def chunk_text(text: str, size=CHUNK_SIZE, overlap=CHUNK_OVERLAP) -> List[str]:
     if not text:
         return []
@@ -78,126 +68,105 @@ def chunk_text(text: str, size=CHUNK_SIZE, overlap=CHUNK_OVERLAP) -> List[str]:
         if j < n:
             k = chunk.rfind(". ")
             if k > len(chunk) * 0.5:
-                chunk = chunk[: k + 1]  # end on sentence if possible
+                chunk = chunk[: k + 1]  # try to end on a sentence
         if len(chunk) > 30:
             out.append(chunk)
         i = max(0, j - overlap)
     return out
 
-# ---------- Per-session numpy index (cosine sim) ----------
-def sess_dir(session_id: str) -> Path:
-    d = SESSIONS_ROOT / session_id
-    d.mkdir(parents=True, exist_ok=True)
-    return d
+# ---------------- Embeddings ----------------
+def embed_batch(texts: List[str], batch_size=64) -> np.ndarray:
+    vecs = []
+    for i in range(0, len(texts), batch_size):
+        part = texts[i:i + batch_size]
+        r = client.embeddings.create(model=EMBED_MODEL, input=part)
+        vecs.append(np.asarray([d.embedding for d in r.data], dtype=np.float32))
+    return np.vstack(vecs)
 
-def save_index(session_id: str, embeddings: np.ndarray, meta: list):
-    d = sess_dir(session_id)
-    np.save(d / "embeddings.npy", embeddings)
-    (d / "meta.json").write_text(json.dumps(meta, ensure_ascii=False, indent=2), encoding="utf-8")
+# ---------------- Index build (from ./docs) ----------------
+EMB_MATRIX: np.ndarray = np.array([])
+META: List[Dict] = []
+INDEX_SUMMARY = "No index."
 
-def load_index(session_id: str):
-    d = sess_dir(session_id)
-    e, m = d / "embeddings.npy", d / "meta.json"
-    if not e.exists() or not m.exists():
-        return None, None
-    return np.load(e), json.loads(m.read_text(encoding="utf-8"))
+def build_index_from_docs() -> str:
+    global EMB_MATRIX, META
+    start = time.time()
+    if not DOCS_DIR.exists():
+        raise FileNotFoundError(f"Docs folder not found: {DOCS_DIR.resolve()}")
 
-def embed(text: str) -> np.ndarray:
-    r = client.embeddings.create(model=EMBED_MODEL, input=text)
-    return np.array(r.data[0].embedding, dtype=np.float32)
+    files = [p for p in DOCS_DIR.rglob("*") if p.suffix.lower() in {".pdf", ".txt", ".md"}]
+    if not files:
+        raise FileNotFoundError(f"No PDF/TXT/MD files found under {DOCS_DIR.resolve()}")
 
-def retrieve(session_id: str, query: str, k=6) -> List[Dict]:
-    embs, meta = load_index(session_id)
-    if embs is None or not len(meta):
+    all_chunks, all_meta = [], []
+    total_pages_skipped = 0
+    for path in files:
+        name = path.name
+        blobs = load_file_with_meta(path)  # [(text, {'page':..})]
+        for text, extra in blobs:
+            if not text.strip():
+                total_pages_skipped += 1
+                continue
+            for c in chunk_text(text):
+                all_chunks.append(c)
+                all_meta.append({
+                    "doc": name,
+                    "page": extra.get("page"),
+                    "chunk_id": str(uuid.uuid4()),
+                    "text_preview": c[:400].replace("\n", " ")
+                })
+
+    if not all_chunks:
+        raise ValueError("No readable text found (likely scanned PDFs without OCR).")
+
+    EMB_MATRIX = embed_batch(all_chunks, batch_size=64)
+    META = all_meta
+    dur = time.time() - start
+    return (
+        f"Indexed {len(files)} file(s), {len(META)} chunks in {dur:.1f}s."
+        + (f" Skipped {total_pages_skipped} blank/scanned page(s)." if total_pages_skipped else "")
+    )
+
+# Build index at startup
+try:
+    INDEX_SUMMARY = build_index_from_docs()
+except Exception as e:
+    INDEX_SUMMARY = f"Index error: {type(e).__name__}: {e}"
+
+# ---------------- Retrieval & Chat ----------------
+def retrieve(query: str, k=6) -> List[Dict]:
+    if EMB_MATRIX.size == 0 or not META:
         return []
-    q = embed(query)
-    embs_n = embs / np.linalg.norm(embs, axis=1, keepdims=True)
-    q_n    = q    / np.linalg.norm(q)
+    q = embed_batch([query])[0]
+    embs_n = EMB_MATRIX / np.linalg.norm(EMB_MATRIX, axis=1, keepdims=True)
+    q_n = q / np.linalg.norm(q)
     sims = (embs_n @ q_n).astype(np.float32)
     idxs = np.argsort(-sims)[:k]
-    return [{"score": float(sims[i]), "meta": meta[i]} for i in idxs]
+    return [{"score": float(sims[i]), "meta": META[i]} for i in idxs]
 
-# ---------- Ingest / Clear (returns REAL error text if something fails) ----------
-def ingest_files(files, session_id: str):
-    try:
-        if not files:
-            return "Upload one or more files (PDF/TXT/MD)."
-        all_chunks, all_meta = [], []
-        skipped_pages = 0
-
-        for f in files:
-            p = Path(getattr(f, "name", str(f)))
-            name = p.name
-            blobs = load_file_with_meta(p)  # list[(text, {'page':...})]
-            for text, extra in blobs:
-                chunks = chunk_text(text)
-                if not text.strip():
-                    skipped_pages += 1
-                for c in chunks:
-                    all_chunks.append(c)
-                    all_meta.append({
-                        "doc": name,
-                        "page": extra.get("page"),
-                        "chunk_id": str(uuid.uuid4()),
-                        "text_preview": c[:400].replace("\n", " ")
-                    })
-
-        if not all_chunks:
-            msg = "No readable text found (likely scanned/unencrypted PDFs)."
-            if skipped_pages:
-                msg += f" Skipped pages without text: {skipped_pages}."
-            return msg
-
-        emb_matrix = embed_batch(all_chunks, batch_size=64)
-        save_index(session_id, emb_matrix, all_meta)
-
-        # best-effort cleanup of temp uploads
-        for f in files:
-            try:
-                Path(getattr(f, "name", str(f))).unlink(missing_ok=True)
-            except Exception:
-                pass
-
-        return f"Ingested {len(all_chunks)} chunks from {len(files)} file(s)." + \
-               (f" Skipped {skipped_pages} blank/scanned page(s)." if skipped_pages else "")
-    except Exception as e:
-        return f"Ingest error: {type(e).__name__}: {e}"
-
-
-def clear_session(session_id: str):
-    d = sess_dir(session_id)
-    if d.exists():
-        shutil.rmtree(d, ignore_errors=True)
-    return "Session index cleared."
-
-# ---------- Chat (STRICTLY from context; temperature=0) ----------
 def _format_ctx(snips: List[Dict]) -> Tuple[str, List[str]]:
     if not snips:
         return "", []
     lines, srcs = [], set()
-    for s in snips[:4]:  # keep prompt lean
-        m, sc = s["meta"], s["score"]
+    for s in snips[:4]:
+        m = s["meta"]
         page = f" p.{m['page']}" if m.get("page") else ""
         lines.append(f"[{m['doc']}{page}] {m['text_preview']}")
         srcs.add(m["doc"])
     return "\n\n".join(lines), sorted(srcs)
 
-def chat_fn(message, history, session_id):
+def chat_fn(message, history):
     try:
-        snips = retrieve(session_id, message, k=6)
+        snips = retrieve(message, k=6)
         if not snips:
             return "Not in the docs."
         ctx, srcs = _format_ctx(snips)
-
         msgs = [
-            {"role": "system", "content": SYSTEM},                           # strong grounding
-            {"role": "user",   "content": f"Context:\n{ctx}\n\nQuestion: {message}"}  # only-docs prompting
+            {"role": "system", "content": SYSTEM},                                # Strong grounding
+            {"role": "user", "content": f"Context:\n{ctx}\n\nQuestion: {message}"} # Only-from-context
         ]
         r = client.chat.completions.create(
-            model=GEN_MODEL,
-            messages=msgs,
-            max_tokens=350,
-            temperature=0.0  # ↑ deterministic, avoids hallucination when context is clear
+            model=GEN_MODEL, messages=msgs, max_tokens=350, temperature=0.0
         )
         out = r.choices[0].message.content.strip()
         if srcs:
@@ -206,49 +175,22 @@ def chat_fn(message, history, session_id):
     except Exception as e:
         return f"[Error] {type(e).__name__}: {e}"
 
-# ---------- UI (per-user session_id; kept in gr.State) ----------
+# ---------------- UI (chat-only; index summary shown) ----------------
 with gr.Blocks(title="Data Enablement Chatbot") as demo:
-    session_id = gr.State()  # None until first interaction; we create & return it from handlers
+    gr.Markdown(f"**Index status:** {INDEX_SUMMARY}")
+    chat = gr.Chatbot()
+    msg = gr.Textbox(placeholder="Ask a question about the docs…")
+    send = gr.Button("Send")
 
-    gr.Markdown("### Data Enablement Chatbot — upload docs (private to **your session**), click **Ingest**, then ask questions.")
-
-    def _sid(sid):  # ensure every user gets a unique, private session
-        return sid or str(uuid.uuid4())
-
-    with gr.Row():
-        with gr.Column(scale=1):
-            up          = gr.File(label="Upload docs (PDF / MD / TXT)", file_count="multiple")
-            ingest_btn  = gr.Button("Ingest uploaded files")
-            ingest_out  = gr.Textbox(label="Ingest status")
-            clear_btn   = gr.Button("Clear my session index")
-            clear_out   = gr.Textbox(label="Clear status")
-            gr.Markdown("Docs & embeddings are stored **ephemerally** under `/tmp/sessions/<session>` and are cleared on restart or when you press **Clear**.")
-        with gr.Column(scale=2):
-            chat = gr.Chatbot()
-            msg  = gr.Textbox(placeholder="Ask a question about your docs…")
-            send = gr.Button("Send")
-
-    # Handlers return updated session_id so each user keeps their own
-    def ingest_handler(files, sid):
-        sid = _sid(sid)
-        return ingest_files(files, sid), sid
-
-    def clear_handler(sid):
-        sid = _sid(sid)
-        return clear_session(sid), sid
-
-    def send_handler(text, history, sid):
-        sid = _sid(sid)
+    def on_send(text, history):
         if not text or not text.strip():
-            return gr.update(value="Please enter a question."), history, sid
-        reply = chat_fn(text, history, sid)
+            return gr.update(value="Please enter a question."), history
+        reply = chat_fn(text, history)
         history = (history or []) + [(text, reply)]
-        return "", history, sid
+        return "", history
 
-    ingest_btn.click(ingest_handler, inputs=[up, session_id],   outputs=[ingest_out, session_id])
-    clear_btn.click(clear_handler,   inputs=[session_id],        outputs=[clear_out, session_id])
-    send.click(send_handler,         inputs=[msg, chat, session_id], outputs=[msg, chat, session_id])
-    msg.submit(send_handler,         inputs=[msg, chat, session_id], outputs=[msg, chat, session_id])
+    send.click(on_send, inputs=[msg, chat], outputs=[msg, chat])
+    msg.submit(on_send, inputs=[msg, chat], outputs=[msg, chat])
 
 if __name__ == "__main__":
     demo.launch()
