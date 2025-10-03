@@ -137,35 +137,36 @@ G_META: List[Dict] = []                  # [{doc, page, text_preview}, …]
 G_STATUS: str = ""                       # human-readable status text
 
 
-def build_index_from_local() -> Tuple[str, np.ndarray | None, List[Dict]]:
-    """Scan DOCS_DIR for .pdf/.txt/.md, chunk, embed, return (status, emb, meta)."""
+def build_index_from_local() -> Tuple[str, np.ndarray, List[Dict]]:
+    """Scan DOCS_DIR for .txt/.md first (preferred) then .pdf, chunk, embed.
+       Skip unreadable files but report them in the status.
+    """
     folder = str(DOCS_DIR)
     if not DOCS_DIR.exists():
         raise FileNotFoundError(f"Docs folder not found: {folder}")
 
+    # Prefer text sources first
     files: List[Path] = []
-    for ext in ("*.pdf", "*.txt", "*.md"):
-        files.extend(sorted(DOCS_DIR.glob(ext)))
+    for pat in ("*.txt", "*.md", "*.pdf"):
+        files.extend(sorted(DOCS_DIR.glob(pat)))
 
-    file_list_text = ", ".join(p.name for p in files) if files else "(none)"
     if not files:
-        return (
-            f"No documents found in {folder}. Looked for *.pdf, *.txt, *.md. "
-            f"Files seen: {file_list_text}"
-        ), None, []
+        return (f"No documents found in {folder}. Looked for *.txt, *.md, *.pdf."), None, []
+
+    # If a .txt exists, ignore the matching .pdf (same stem)
+    txt_basenames = {p.stem for p in DOCS_DIR.glob("*.txt")}
+    files = [p for p in files if not (p.suffix.lower() == ".pdf" and p.stem in txt_basenames)]
 
     all_chunks, all_meta = [], []
     skipped_pages = 0
+    errors: List[str] = []
 
     for path in files:
         try:
             blobs = load_file_with_meta(path)  # list[(text, {'page':...})]
         except Exception as e:
-            # include the error in the status so it’s obvious
-            return (
-                f"Error reading {path.name}: {type(e).__name__}: {e} "
-                f"(folder: {folder}; files: {file_list_text})"
-            ), None, []
+            errors.append(f"{path.name}: {type(e).__name__}: {e}")
+            continue
 
         for text, extra in blobs:
             if not text.strip():
@@ -180,21 +181,23 @@ def build_index_from_local() -> Tuple[str, np.ndarray | None, List[Dict]]:
                 })
 
     if not all_chunks:
-        msg = (
-            f"Found {len(files)} file(s) in {DOCS_DIR.name} but no readable text "
-            f"(likely scanned PDFs)."
-        )
+        msg = (f"Found {len(files)} file(s) in {DOCS_DIR} but no readable text "
+               f"(likely scanned/encrypted PDFs).")
         if skipped_pages:
             msg += f" | Skipped {skipped_pages} blank/scanned page(s)."
+        if errors:
+            msg += " | Failed: " + ", ".join(errors[:3]) + ("…" if len(errors) > 3 else "")
         return msg, None, []
 
     emb = embed_batch(all_chunks, batch_size=64)
 
-    status = (
-        f"Indexed {len(all_chunks):,} chunks from {len(files):,} file(s) in {DOCS_DIR.name}."
-    )
+    parts = [f"Indexed {len(all_chunks)} chunks from {len(files)} file(s) in {DOCS_DIR.name}."]
     if skipped_pages:
-        status += f" | Skipped {skipped_pages} blank/scanned page(s)."
+        parts.append(f"Skipped {skipped_pages} blank/scanned page(s).")
+    if errors:
+        parts.append("Failed to read "
+                     f"{len(errors)} file(s): " + ", ".join(errors[:3]) + ("…" if len(errors) > 3 else ""))
+    status = " | ".join(parts)
 
     return status, emb, all_meta
 
