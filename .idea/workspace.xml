@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dc24f0dc-4732-41e3-a402-f33d6b23e5b2" name="Changes" comment="Added new OpenAI API Token to use 4o&#10;Fixed issues with infinite opening tabs in Lightstream&#10;More natural language and responses&#10;More useful sidebar for dev testing and resyncing knowledge center">
-      <change beforePath="$PROJECT_DIR$/rig_app.py" beforeDir="false" afterPath="$PROJECT_DIR$/rig_app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Data Enablement Chatbot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Data Enablement Chatbot.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements_rig.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements_rig.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +91,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760381584606</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added new OpenAI API Token to use 4o&#10;Fixed issues with infinite opening tabs in Lightstream&#10;More natural language and responses&#10;More useful sidebar for dev testing and resyncing knowledge center">
+      <option name="closed" value="true" />
+      <created>1760381727385</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1760381727385</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
